@@ -102,7 +102,7 @@
     "rollup-plugin-typescript": "^0.8.1",
     "semantic-release": "^15.5.0",
     "ts-jest": "^22.4.6",
-    "ts-node": "^6.0.3",
+    "ts-node": "^6.1.1",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-config-standard": "^7.0.0",
@@ -116,6 +116,7 @@
     "fs-extra": "^6.0.1",
     "generate-schema": "^2.6.0",
     "lodash": "^4.17.10",
-    "mailparser": "^2.2.0"
+    "mailparser": "^2.2.0",
+    "node-json-transform": "^1.0.16"
   }
 }

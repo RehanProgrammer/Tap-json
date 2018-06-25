@@ -11,10 +11,10 @@ import * as configLoader from './tap-load-config'
 import * as parseMime from './parse-mime'
 export { parseItem } from './parse-mime'
 import * as scanDir from './scan-dir'
-
+import * as test from './testingDataTransform'
 // show developers that code has started to run
 console.log('working!')
-
+test.test()
 /** mainFunction is the main code to be run.
  *
  * This code is in its own function because it uses "await" to call async functions, and
