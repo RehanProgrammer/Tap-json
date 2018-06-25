@@ -12,9 +12,10 @@ import * as parseMime from './parse-mime'
 export { parseItem } from './parse-mime'
 import * as scanDir from './scan-dir'
 import * as test from './testingDataTransform'
+import * as tapJson from './tapJson'
 // show developers that code has started to run
 console.log('working!')
-test.test()
+//test.test()
 /** mainFunction is the main code to be run.
  *
  * This code is in its own function because it uses "await" to call async functions, and
@@ -23,7 +24,7 @@ test.test()
 async function mainFunction() {
   try {
     var configObjs = await configLoader.loadConfig()
-    return scanDir.scanDir(configObjs, parseMime.parseItem)
+    return scanDir.scanDir(configObjs, tapJson.parseJson)
   } catch {
     let error = (error: any): any => {
       // Handle errors

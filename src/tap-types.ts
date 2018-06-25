@@ -12,6 +12,7 @@ export interface ConfigType {
 
   // used by scan_* scanner modules to describe the folder they'll be scanning
   target_folder?: string
+  target_map_file?: string //added by rehan
 }
 
 /** This object contains all available CONFIG/STATE/CATALOG records
