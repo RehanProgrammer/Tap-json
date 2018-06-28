@@ -2,8 +2,9 @@ import * as tapTypes from './tap-types'
 //import * as configLoader from './tap-load-config'
 
 var DataTransform = require('node-json-transform').DataTransform
+var nodeJsonTransformer = require('json-transformer-node')
 var fse = require('fs-extra')
-var data = {
+var dataDefined = {
   posts: [
     {
       title: 'title1',
@@ -28,37 +29,20 @@ var data = {
   ]
 }
 
-var ap = {
+var mapDefinded = {
   list: 'posts',
   item: {
     name: 'title',
     info: 'description',
     text: 'blog',
     date: 'date',
-    link: 're',
+    link: 'extra.link',
     item: 'list1.0.name',
-    item1: 'list2.0.item',
     clearMe: '',
     fieldGroup: ['title', 'extra']
-  },
-  operate: [
-    {
-      run: 'Date.parse',
-      on: 'date'
-    },
-    {
-      run: function(val: any) {
-        return val + ' more info'
-      },
-      on: 'info'
-    }
-  ],
-  each: function(item: any) {
-    // make changes
-    item.iterated = true
-    return item
   }
 }
+
 var map1 = {
   //list : 'posts',
   list: 'products',
@@ -88,11 +72,10 @@ async function readContent(callback: any) {
 /*export async function transform_JSON(){//this function was for testing purposes
     
     try {  
-        const testFilePath = 'C:\\tap-ts-starter\\testdata\\myTestData\\test.json';
+        const testFilePath = 'C:\\tap-json\\testdata\\MytestData\\test.json';
        var data1 = await fse.readFile(testFilePath, 'utf8');
        
        data1 = JSON.parse(data1);
-       console.log(data);
        console.log(data1);
         var dataTransform = DataTransform(data1, map1);  //the error is while reading 
                                                        //the file.
@@ -109,19 +92,28 @@ export async function parseJson(buffer: any, configObjs: tapTypes.allConfigs) {
   let config = configObjs.config
   let parsed = await buffer
   parsed = JSON.parse(parsed)
-  console.log(parsed)
   var map = await fse.readFile(config.target_map_file)
-  var dataTransform = DataTransform(parsed, map)
-  var result = dataTransform.transform()
-  console.log(result)
-  let rec = new tapTypes.streamRecord()
+  map = JSON.parse(map)
+  if (Array.isArray(parsed[Object.keys(parsed)[0]])) {
+    var dataTransform = DataTransform(parsed, map)
+    var result = dataTransform.transform()
+    let rec = new tapTypes.streamRecord()
+    rec.stream = 'JSON transform'
+    rec.time_extracted = new Date()
+    rec.record = result
+    return rec
+  } else {
+    return console.log('error: JSON is not in acceptable format')
+  }
+  //var check = Array.isArray(map);
+}
+
+/*let rec = new tapTypes.streamRecord()
   rec.stream = 'JSON transform'
   rec.time_extracted = new Date()
   rec.record = result
   console.log(rec)
-  return rec
-}
-
+  return rec*/
 /*buffer = JSON.parse(buffer);
      let config = configObjs.config;
      var map;

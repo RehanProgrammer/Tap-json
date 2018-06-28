@@ -33,7 +33,7 @@ export async function scanDir(configObjs: tapTypes.allConfigs, parser: any) {
     // return an array of promises, one per filename, for Promise.all to run asynchronously
     filelist.map(async function(filename, idx) {
       let buffer = await fse.readFile(config.target_folder + '/' + filelist[idx])
-      console.log(buffer)
+
       return parser(buffer, configObjs) // the parsing is done here
     })
   )

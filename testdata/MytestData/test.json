@@ -1,13 +1,22 @@
 {
-    
-		
-        "id": "books0",
-        "zero": 0,
-        "sku": "00234-12312",
-        "subitems": [
-            { "subid": "0.0", "subsku": "subskuvalue0.0" },
-            { "subid": "0.1", "subsku": "subskuvalue0.1" }
-        ]
-    
-  
+    "ModuleId":[
+{
+  "Name": "ModuleId",
+  "Start": 0,
+  "Length": 0,
+  "DataType": "Alphanumeric",
+  "Description": "Module ID",
+  "Picture": "",
+  "ignoreOnImport": false,
+  "Template": "",
+  "Value": "",
+  "ToCanonical": [
+    {
+      "match": "^\\s*(.{15})",
+      "replace": ""
+    }
+  ],
+  "FromCanonical": []
+   }
+  ]
 }
