@@ -1,5 +1,5 @@
 /**
- * This module is the entry point for local execution as a Singer tap (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
+ * This module is the entry point for local execution as a Singer tap (see the [spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md))
  */
 
 /** this is a dummy single-line comment needed for documentation build; a hack for https://github.com/TypeStrong/typedoc/issues/603 */
@@ -7,15 +7,16 @@
 /** DummyClass is used in testing (see ```npm test``` in package.json) */
 export default class DummyClass {}
 
-import * as configLoader from './tap-load-config'
+import * as configLoader from './singer/tap-load-config'
 import * as parseMime from './parse-mime'
+import * as parseJon from './parseJson'
+export { parseJson } from './parseJson'
 export { parseItem } from './parse-mime'
 import * as scanDir from './scan-dir'
-import * as test from './testingDataTransform'
-import * as tapJson from './tapJson'
+
 // show developers that code has started to run
 console.log('working!')
-//test.test()
+
 /** mainFunction is the main code to be run.
  *
  * This code is in its own function because it uses "await" to call async functions, and
@@ -24,15 +25,12 @@ console.log('working!')
 async function mainFunction() {
   try {
     var configObjs = await configLoader.loadConfig()
-    return scanDir.scanDir(configObjs, tapJson.parseJson)
-  } catch {
-    let error = (error: any): any => {
-      // Handle errors
-      console.error('Error: ', error)
-      return error
-    }
+    return scanDir.scanDir(configObjs, parseMime.parseItem)
+  } catch (error) {
+    // Handle errors
+    console.error('Error: ', error)
   }
 }
 
-// call mainFunction
-mainFunction()
+// call mainFunction if this is the main function (but not if it is just imported by another function)
+if (process.argv[1].includes('tap-main')) mainFunction()

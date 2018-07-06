@@ -7,7 +7,7 @@
 
 /** fs-extra is a promise-enabled superset of the standard fs package */
 import * as fse from 'fs-extra'
-import * as tapTypes from './tap-types'
+import * as tapTypes from './singer/tap-types'
 
 /** generate json-schemas for our records, if needed */
 var generateSchema = require('generate-schema') // typescript types aren't available so we load javascript-style instead of using typescript's import
@@ -29,29 +29,41 @@ export async function scanDir(configObjs: tapTypes.allConfigs, parser: any) {
   let schema: any = null
 
   let filelist: string[] = await fse.readdir(config.target_folder as string)
+  // remove directories from file list
+  for (let i = filelist.length - 1; i > -1; i--) {
+    let stat = fse.lstatSync(config.target_folder + '/' + filelist[i])
+    if (stat.isDirectory()) filelist.splice(i, 1)
+  }
   let parsedObjs = await Promise.all(
     // return an array of promises, one per filename, for Promise.all to run asynchronously
     filelist.map(async function(filename, idx) {
-      let buffer = await fse.readFile(config.target_folder + '/' + filelist[idx])
-
+      let buffer = await fse.readFile(config.target_folder + '/' + filename)
       return parser(buffer, configObjs) // the parsing is done here
     })
   )
   let parsing = (parsedObjs: any) => {
     if (parsedObjs.length == 0) return null
 
-    let schm = new tapTypes.streamSchema()
-
-    // if no schema exists, create a schema based on the first new object
-    if (!schm.schema) schm.schema = generateSchema.json(parsedObjs[0].record)
-    schm.stream = parsedObjs[0].stream
-
-    // write the schema
-    console.log(JSON.stringify(schm))
-
     // write the objects
     parsedObjs.forEach(function(parsedObj: any, idx: any) {
-      console.log(JSON.stringify(parsedObj))
+      if (parsedObj.length) {
+        // parsedObj is actually an array, meaning that parser returned multiple record objects
+        // instead of one, so we will parse each element of the array separately
+        parsing(parsedObj)
+      } else {
+        let schm = new tapTypes.streamSchema()
+
+        // if no schema exists, create a schema based on the first new object
+        if (!schm.schema && parsedObjs[0].type != 'SCHEMA') {
+          schm.schema = generateSchema.json(parsedObjs[0].record)
+          schm.stream = parsedObjs[0].stream
+
+          // write the schema
+          console.log(JSON.stringify(schm))
+        }
+
+        console.log(JSON.stringify(parsedObj))
+      }
     })
     // TODO: write STATE record
   }

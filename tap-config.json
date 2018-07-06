@@ -1,6 +1,6 @@
 {
-    "target_folder" : "./testdata/myTestData",
-    "target_map_file" : "./testdata/myMap/map1.json",
+    "target_folder" : "./testdata/tests",
+    "target_map" : "./testdata/maps/testMap.json",
     "start_date" : "2017-01-01T00:00:00Z",
     "user_agent" : "Stitch (+support@stitchdata.com)"
   }

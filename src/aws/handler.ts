@@ -8,7 +8,9 @@
 
 import getFile = require('./s3-getfile')
 import * as fse from 'fs-extra'
-import * as parseMime from './parse-mime'
+import { parseItem } from '../tap-main'
+import { parseJson } from '../tap-main'
+import * as tapTypes from '../singer/tap-types'
 
 // response object for Lambda Proxy integration; see https://serverless.com/framework/docs/providers/aws/events/apigateway/
 class lambdaResponse {
@@ -22,10 +24,11 @@ class lambdaResponse {
 }
 
 export function hello(event: any, context: any, callback: any) {
+  console.log('it hit me')
   const response = new lambdaResponse()
   response.body = JSON.stringify({
     message: 'Hello! Your function executed successfully!',
-    input: event
+    lambdaEvent: event
   })
 
   callback(null, response)
@@ -34,12 +37,33 @@ export function hello(event: any, context: any, callback: any) {
   // callback(null, { message: 'Hello! Your function executed successfully!', event });
 }
 
+export async function doParse(event: any, context: any, callback: any) {
+  const response = new lambdaResponse()
+  response.body = JSON.stringify({ message: 'this is a dummy body and should be replaced.' })
+
+  try {
+    const body = JSON.parse(event.body) //added json stringify
+    console.log(event) // uncomment this to dump a copy of the "lambdaEvent" to CloudWatch log, so you can update your aws-*.ts file with a good "test" copy of that event...
+    // ..that contains the custom fields needed by your particular parser
+
+    let toParse = body.toParse
+
+    let config = <tapTypes.allConfigs>body.config
+    response.body = JSON.stringify(await parseJson(toParse, config))
+    callback(null, response)
+  } catch (err) {
+    console.log(err)
+    context.done(err, err)
+    return
+  }
+}
+
 export function handleFileTrigger(event: any, context: any, callback: any) {
   const response = new lambdaResponse()
 
   function handleFile(contents: any) {
     console.log('File Contents: \n' + contents)
-    parseMime.parseItem(contents).then(function(parsedObj: Object) {
+    parseItem(contents).then(function(parsedObj: Object) {
       console.log('Parsed Contents: \n' + JSON.stringify(parsedObj))
       response.body = JSON.stringify(parsedObj)
     })
