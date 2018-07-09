@@ -5,59 +5,135 @@ import * as configLoader from './singer/tap-load-config'
 var DataTransform = require('node-json-transform').DataTransform
 var fse = require('fs-extra')
 let data = {
-  ModuleId: [
+  deliveryInfo: {
+    Filename: '',
+    Subject: 'Ferguson - K & D Farms JV: 1303',
+    Body: '',
+    To: 'kelly@texasorganic.com',
+    CC: '',
+    subject: 'Ferguson - K & D Farms JV: 1303'
+  },
+  filter: '((it.FarmRef == 228) and (it.CustomerRef == 91) and ( {{{Bale.NotARemnant}}}))',
+  userEntered: {
+    User_Password: 'ANITA',
+    HolderTo: 'Z439664',
+    EAD_Holder: 'y'
+  },
+  detailProperties: [
     {
-      Name: 'ModuleId',
-      Start: 0,
-      Length: 0,
-      DataType: 'Alphanumeric',
-      Description: 'Module ID',
-      Picture: '',
-      ignoreOnImport: false,
-      Template: '',
-      Value: '',
-      ToCanonical: [
-        {
-          match: '^\\s*(.{15})',
-          replace: ''
-        }
-      ],
-      FromCanonical: []
+      Name: 'WhsCode',
+      DataType: 'String',
+      MaxLength: 6
+    },
+    {
+      Name: 'WhsTag',
+      DataType: 'String',
+      MaxLength: 7
+    },
+    {
+      Name: 'CropYear',
+      DataType: 'String',
+      MaxLength: 4
+    }
+  ],
+  select: 'new (WhsCode as WhsCode, WhsTag as WhsTag, CropYear as CropYear)',
+  dataport: 'Transfer.Transfer Loan Bales.ewrexp',
+  deliveryMethod: 'Ewr',
+  extraInfo: {
+    WhsCode: '880533',
+    WhsTag: '0901997',
+    CropYear: 2017,
+    ConnectUsing: 'Sync',
+    FtpHost: 'ftp.ewrinc.net',
+    FtpLogin: 'Z439664',
+    FtpPassword: 'texo2514',
+    HolderId: 'Z439664',
+    UserId: 'MORTON',
+    BatchNum: '1519',
+    CreateDate: '2018-01-22T18:00:00Z',
+    CreateTime: '08:30:38'
+  },
+  entities: [
+    {
+      WhsCode: '880533',
+      WhsTag: '0901997',
+      CropYear: 2017
+    },
+    {
+      WhsCode: '880533',
+      WhsTag: '0901998',
+      CropYear: 2017
+    },
+    {
+      WhsCode: '880533',
+      WhsTag: '0901999',
+      CropYear: 2017
     }
   ]
 }
 
-let map = {
-  list: 'ModuleId',
+let map_forDetail = {
+  list: 'entities',
   item: {
-    tapName: 'Name',
-    targetName: 'Name',
-    FixedStart: 'Start',
-    FixedLength: 'Length',
-    'DataType:': 'DataType',
-    Description: 'Description',
-    TargetPicture: 'Picture',
-    ignoreOnImport: 'ignoreOnImport',
-    ExportTemplate: 'Template',
-    ImportTemplate: 'Template',
-    Value: 'Value',
-    ImportRegex: 'ToCanonical.0.match',
-    ExportRegex: ''
+    'Warehouse Code': 'WhsCode',
+    'Electronic Receipt Number': 'WhsTag',
+    'Crop Year': 'CropYear',
+    'Purchase Order Number': '',
+    'Invoice Number': '',
+    Mark: '',
+    'Grower Reference Number': 0
   }
 }
+let data1 = {
+  extraInfo: {
+    WhsCode: '880533',
+    WhsTag: '0901997',
+    CropYear: 2017,
+    ConnectUsing: 'Sync',
+    FtpHost: 'ftp.ewrinc.net',
+    FtpLogin: 'Z439664',
+    FtpPassword: 'texo2514',
+    HolderId: 'Z439664',
+    UserId: 'MORTON',
+    BatchNum: '1519',
+    CreateDate: '2018-01-22T18:00:00Z',
+    CreateTime: '08:30:38'
+  }
+}
+
+let map = {
+  //if this works change to map_forHeader
+
+  'Holder ID': 'extraInfo.HolderId'
+}
+/*
+"User ID": 'extraInfo.UserId',
+    "User Password": 'extraInfo.list1.User_Password',
+    "Batch Number": 'extraInfo.BatchNum',
+    "Batch Type": 52,
+    "Batch Date": 'extraInfo.CreateDate',
+    "Batch Time": 'extraInfo.CreateTime',
+   // "Buyer ID": 'list1.HolderTo',
+    //"Send Detail": 'list1.EAD_Holder',
+    "Certificated Type": "",
+      "Only Block Receipts": "",
+      "Loan Transfer": ""
+  }
+*/
+
 export async function parseJson(toParse: any, configObjs: any) {
-  // var configObjs = await configLoader.loadConfig();
-  // let config = configObjs.config
-  //let parsed = await toParse;
   let config = configObjs
-  console.log(toParse)
-  //toParse = JSON.parse(JSON.stringify(toParse));
+  console.log(data1)
+  console.log(map)
+
+  var dataTransform = DataTransform(data1, map)
+  var result = dataTransform.transform()
+  console.log(result)
   if (config.map == undefined) {
     //console.log(configObjs);
     map = JSON.parse(JSON.stringify(map))
     data = JSON.parse(JSON.stringify(data))
-    console.log(map)
-    console.log(data)
+
     if (Array.isArray([Object.keys(data)[0]])) {
       var dataTransform = DataTransform(data, map)
       var result = dataTransform.transform()
