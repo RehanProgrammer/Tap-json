@@ -2,7 +2,7 @@ import * as tapTypes from './singer/tap-types'
 import * as configLoader from './singer/tap-load-config'
 //import * as configLoader from './tap-load-config'
 
-var DataTransform = require('node-json-transform').DataTransform
+var DataTransform = require('json-transformer-node') //require('node-json-transform').DataTransform
 var fse = require('fs-extra')
 let data = {
   deliveryInfo: {
@@ -73,18 +73,31 @@ let data = {
 }
 
 let map_forDetail = {
-  list: 'entities',
-  item: {
-    'Warehouse Code': 'WhsCode',
-    'Electronic Receipt Number': 'WhsTag',
-    'Crop Year': 'CropYear',
-    'Purchase Order Number': '',
-    'Invoice Number': '',
-    Mark: '',
-    'Grower Reference Number': 0
+  mapping: {
+    item: {
+      Bale: [
+        {
+          list: 'entities',
+          item: {
+            'Warehouse Code': 'WhsCode',
+            'Electronic Receipt Number': 'WhsTag',
+            'Crop Year': 'CropYear',
+            'Purchase Order Number': '',
+            'Invoice Number': '',
+            Mark: '',
+            'Grower Reference Number': 0
+          }
+        }
+      ]
+    }
   }
 }
 let data1 = {
+  userEntered: {
+    User_Password: 'ANITA',
+    HolderTo: 'Z439664',
+    EAD_Holder: 'y'
+  },
   extraInfo: {
     WhsCode: '880533',
     WhsTag: '0901997',
@@ -101,35 +114,63 @@ let data1 = {
   }
 }
 
-let map = {
-  //if this works change to map_forHeader
-
-  'Holder ID': 'extraInfo.HolderId'
-}
-/*
-"User ID": 'extraInfo.UserId',
-    "User Password": 'extraInfo.list1.User_Password',
-    "Batch Number": 'extraInfo.BatchNum',
-    "Batch Type": 52,
-    "Batch Date": 'extraInfo.CreateDate',
-    "Batch Time": 'extraInfo.CreateTime',
-   // "Buyer ID": 'list1.HolderTo',
-    //"Send Detail": 'list1.EAD_Holder',
-    "Certificated Type": "",
-      "Only Block Receipts": "",
-      "Loan Transfer": ""
+let map_forheaderjson = {
+  mapping: {
+    item: {
+      EWR_ToHost: {
+        item: {
+          'Holder ID': 'extraInfo.HolderId',
+          'User ID': 'extraInfo.UserId',
+          'User Password': 'userEntered.User_Password',
+          'Batch Number': 'extraInfo.BatchNum',
+          'Batch Type': 52,
+          'Batch Date': '$2018-01-22T00:00:00.000Z',
+          'Batch Time': '$2018-07-09T08:30:38.000Z',
+          'Buyer ID': 'userEntered.HolderTo',
+          'Send Detail': 'userEntered.EAD_Holder',
+          'Certificated Type': '',
+          'Only Block Receipts': '',
+          'Loan Transfer': ''
+        }
+      }
+    }
   }
-*/
+}
+var data12 = {
+  x: {
+    x1: '123'
+  },
+  y: 456,
+  z: 'abc'
+}
+
+var transformation = {
+  mapping: {
+    item: {
+      arrayItems: {
+        objectify: 'x',
+        item: {
+          car: {
+            c1: 'x1',
+            c2: '$abc'
+          },
+          c3: 'y'
+        }
+      }
+    }
+  }
+}
 
 export async function parseJson(toParse: any, configObjs: any) {
   let config = configObjs
-  console.log(data1)
-  console.log(map)
-
-  var dataTransform = DataTransform(data1, map)
-  var result = dataTransform.transform()
+  console.log(data)
+  console.log(map_forheaderjson)
+  var result = DataTransform.transform(data, map_forheaderjson)
   console.log(result)
-  if (config.map == undefined) {
+  console.log(JSON.stringify(result))
+}
+
+/*if (config.map == undefined) {
     //console.log(configObjs);
     map = JSON.parse(JSON.stringify(map))
     data = JSON.parse(JSON.stringify(data))
@@ -161,5 +202,4 @@ export async function parseJson(toParse: any, configObjs: any) {
       return console.log('error: JSON is not in acceptable format')
     }
     //var check = Array.isArray(map);
-  }
-}
+  }*/
