@@ -8,7 +8,7 @@
 
 import getFile = require('./s3-getfile')
 import * as fse from 'fs-extra'
-import { parseItem } from '../tap-main'
+//import { parseItem } from '../tap-main'
 import { parseJson } from '../tap-main'
 import * as tapTypes from '../singer/tap-types'
 
@@ -42,12 +42,11 @@ export async function doParse(event: any, context: any, callback: any) {
   response.body = JSON.stringify({ message: 'this is a dummy body and should be replaced.' })
 
   try {
-    const body = JSON.parse(event.body) //added json stringify
-    console.log(event) // uncomment this to dump a copy of the "lambdaEvent" to CloudWatch log, so you can update your aws-*.ts file with a good "test" copy of that event...
+    const body = JSON.parse(event.body)
+    //console.log(event) // uncomment this to dump a copy of the "lambdaEvent" to CloudWatch log, so you can update your aws-*.ts file with a good "test" copy of that event...
     // ..that contains the custom fields needed by your particular parser
 
     let toParse = body.toParse
-
     let config = <tapTypes.allConfigs>body.config
     response.body = JSON.stringify(await parseJson(toParse, config))
     callback(null, response)
@@ -60,10 +59,12 @@ export async function doParse(event: any, context: any, callback: any) {
 
 export function handleFileTrigger(event: any, context: any, callback: any) {
   const response = new lambdaResponse()
-
+  const body = JSON.parse(event.body)
+  let toParse = body.toParse
+  let config = <tapTypes.allConfigs>body.config
   function handleFile(contents: any) {
     console.log('File Contents: \n' + contents)
-    parseItem(contents).then(function(parsedObj: Object) {
+    parseJson(contents, config).then(function(parsedObj: Object) {
       console.log('Parsed Contents: \n' + JSON.stringify(parsedObj))
       response.body = JSON.stringify(parsedObj)
     })

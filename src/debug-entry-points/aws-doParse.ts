@@ -22,41 +22,65 @@ function callback(error: any, result: Object) {
  * Retrieve a new version of this--search for "lambdaEvent" in handler.ts
  */
 let lambdaEvent = {
-  resource: '/doParse',
-  path: '/doParse',
+  resource: '/doparse',
+  path: '/doparse',
   httpMethod: 'POST',
-  headers: null,
+  headers: {
+    Accept: 'application/json, text/plain, */*',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'CloudFront-Forwarded-Proto': 'https',
+    'CloudFront-Is-Desktop-Viewer': 'true',
+    'CloudFront-Is-Mobile-Viewer': 'false',
+    'CloudFront-Is-SmartTV-Viewer': 'false',
+    'CloudFront-Is-Tablet-Viewer': 'false',
+    'CloudFront-Viewer-Country': 'US',
+    'content-type': 'text/plain',
+    Host: 'ookskinyxa.execute-api.us-west-2.amazonaws.com',
+    origin: 'https://priceless-stonebraker-28f31a.netlify.com',
+    Referer: 'https://priceless-stonebraker-28f31a.netlify.com/page-3',
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+    Via: '2.0 8ef95d493d865f4668c02b9fe8b8f1e5.cloudfront.net (CloudFront)',
+    'X-Amz-Cf-Id': 'Y5Wwqp1xc1UWSPiThY3uwLr_VbXr2eWzvygsnsmF2T4CPrH3BoGURg==',
+    'X-Amzn-Trace-Id': 'Root=1-5b466a27-e56aa5d464b0c9d4386a22b2',
+    'X-Forwarded-For': '65.182.85.9, 70.132.9.108',
+    'X-Forwarded-Port': '443',
+    'X-Forwarded-Proto': 'https'
+  },
   queryStringParameters: null,
   pathParameters: null,
   stageVariables: null,
   requestContext: {
-    path: '/doParse',
-    accountId: '540471531016',
-    resourceId: 'rl6k0w',
-    stage: 'test-invoke-stage',
-    requestId: '7535ec60-7b48-11e8-8b23-6d7699f2ee0b',
+    resourceId: '0375q4',
+    resourcePath: '/doparse',
+    httpMethod: 'POST',
+    extendedRequestId: 'J4WGOHJIPHcFs1g=',
+    requestTime: '11/Jul/2018:20:35:51 +0000',
+    path: '/dev/doparse',
+    accountId: '895843423532',
+    protocol: 'HTTP/1.1',
+    stage: 'dev',
+    requestTimeEpoch: 1531341351853,
+    requestId: '00932f37-854a-11e8-aabe-69501dceb634',
     identity: {
       cognitoIdentityPoolId: null,
+      accountId: null,
       cognitoIdentityId: null,
-      apiKey: 'test-invoke-api-key',
+      caller: null,
+      sourceIp: '65.182.85.9',
+      accessKey: null,
       cognitoAuthenticationType: null,
-      userArn: 'arn:aws:iam::540471531016:root',
-      apiKeyId: 'test-invoke-api-key-id',
-      userAgent: 'aws-internal/3',
-      accountId: '540471531016',
-      caller: '540471531016',
-      sourceIp: 'test-invoke-source-ip',
-      accessKey: 'ASIAIXWF7LBAGGMZ64SA',
       cognitoAuthenticationProvider: null,
-      user: '540471531016'
+      userArn: null,
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
+      user: null
     },
-    resourcePath: '/doParse',
-    httpMethod: 'POST',
-    extendedRequestId: 'JOYH5F9PvHcF3RA=',
-    apiId: 'km898b6ahb'
+    apiId: 'ookskinyxa'
   },
   body:
-    '{"toParse":"Mime-Version: 1.0 (Apple Message framework v730)\\r\\nContent-Type: multipart/mixed; boundary=Apple-Mail-13-196941151\\r\\nMessage-Id: <9169D984-4E0B-45EF-82D4-8F5E53AD7012@example.com>\\r\\nFrom: foo@example.com\\r\\nSubject: testing\\r\\nDate: Mon, 6 Jun 2005 22:21:22 +0200\\r\\nTo: blah@example.com\\r\\n\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Transfer-Encoding: quoted-printable\\r\\nContent-Type: text/plain;\\r\\n\\tcharset=ISO-8859-1;\\r\\n\\tdelsp=yes;\\r\\n\\tformat=flowed\\r\\n\\r\\nThis is the first part.\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Type: text/plain; name=This is a test.txt\\r\\nContent-Transfer-Encoding: 7bit\\r\\nContent-Disposition: attachment;\\r\\n\\tfilename=This is a test.txt\\r\\n\\r\\nHi there.\\r\\n\\r\\n--Apple-Mail-13-196941151--",\n"config":"{\\"config\\":{\\r\\n    \\"target_folder\\" : \\"./testdata\\",\\r\\n    \\"start_date\\" : \\"2017-01-01T00:00:00Z\\",\\r\\n    \\"user_agent\\" : \\"Stitch (+support@stitchdata.com)\\"\\r\\n  }\\r\\n}"\n}',
+    '{"toParse":{"userEntered":{"User Password":"ANITA","HolderTo":"Z439664","EAD Holder":"y"},"deliveryMethod":"Ewr","extraInfo":{"WhsCode":"880533","WhsTag":"0901997","CropYear":2017,"ConnectUsing":"Sync","FtpHost":"ftp.ewrinc.net","FtpLogin":"Z439664","FtpPassword":"texo2514","HolderId":"Z439664","UserId":"MORTON","BatchNum":"1519","CreateDate":"2018-01-22T18:00:00Z","CreateTime":"08:30:38"},"entities":[{"WhsCode":"880533","WhsTag":"0901997","CropYear":2017},{"WhsCode":"880533","WhsTag":"0901998","CropYear":2017},{"WhsCode":"880533","WhsTag":"0901999","CropYear":2017},{"WhsCode":"880533","WhsTag":"0902000","CropYear":2017},{"WhsCode":"880533","WhsTag":"0902001","CropYear":2017}]},"config":{"start_date":"2017-01-01T00:00:00Z","user_agent":"Stitch (+support@stitchdata.com)","map":{"mapping":{"item":{"Bale":[{"list":"entities","item":{"Warehouse Code":"WhsCode","Electronic Receipt Number":"WhsTag","Crop Year":"CropYear(NUMBER)","Purchase Order Number":"$","Invoice Number":"$","Mark":"$","Grower Reference Number":"$0"}}]}}}}}',
   isBase64Encoded: false
 }
 
@@ -123,4 +147,4 @@ let lambdaEvent1 = {
   isBase64Encoded: false
 }
 
-handler.doParse(lambdaEvent1, {}, callback)
+handler.doParse(lambdaEvent, {}, callback)

@@ -1,4 +1,4 @@
-import { parseItem } from '../src/tap-main'
+import { parseJson } from '../src/tap-main'
 import fse from 'fs-extra'
 
 const inputDir = 'testdata/tests'
@@ -26,13 +26,14 @@ test('checking parseItem.', async () => {
   //test.each(filelist)('Tested data input: ' + result[i].testdata + ' with expected output: ' + result[i].expecteddata, async () => {
 
   for (let i = 0; i < result.length; i++) {
-    let testdata = result[i].testdata //iterate through '../tap-ts-starter/testdata/emails'
+    let testdata = result[i].testdata //iterate through '../tap-ts-starter/testdata/tests' for now i have only 1 test and and 1 testresult
     let expecteddata = result[i].expectedresult //interate through '../tap-ts-starter/testdata/testoutput'
 
     console.log('Tested data input: ' + testdata + ' with expected output: ' + expecteddata)
 
     let data = await fse.readFile(inputDir + '/' + testdata)
-    let parsedresult = await parseItem(data)
+    let map = await fse.readFile('C:\\tap-json\\testdata\\tests\\test.json')
+    let parsedresult = await parseJson(data, map)
     let expected = await fse.readJson(resultDir + '/' + expecteddata)
 
     expected.time_extracted = parsedresult.time_extracted.toISOString()

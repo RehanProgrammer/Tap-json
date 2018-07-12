@@ -1,0 +1,49 @@
+{
+  "userEntered": {
+    "User Password": "boggie-man",
+    "HolderTo": "Z439664",
+    "EAD Holder": "y"
+  },
+  "deliveryMethod": "Ewr",
+  "extraInfo": {
+    "WhsCode": "880533",
+    "WhsTag": "0901997",
+    "CropYear": 2017,
+    "ConnectUsing": "Sync",
+    "FtpHost": "ftp.ewrinc.net",
+    "FtpLogin": "Z439664",
+    "FtpPassword": "texo2514",
+    "HolderId": "Z439664",
+    "UserId": "MORTON",
+    "BatchNum": "1519",
+    "CreateDate": "2018-01-22T18:00:00Z",
+    "CreateTime": "08:30:38"
+  },
+  "entities": [
+    {
+      "WhsCode": "880533",
+      "WhsTag": "0901997",
+      "CropYear": 2017
+    },
+    {
+      "WhsCode": "880533",
+      "WhsTag": "0901998",
+      "CropYear": 2017
+    },
+    {
+      "WhsCode": "880533",
+      "WhsTag": "0901999",
+      "CropYear": 2017
+    },
+    {
+      "WhsCode": "880533",
+      "WhsTag": "0902000",
+      "CropYear": 2017
+    },
+    {
+      "WhsCode": "880533",
+      "WhsTag": "0902001",
+      "CropYear": 2017
+    }
+  ]
+}

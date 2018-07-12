@@ -1,20 +1,6 @@
 [
 {
-    "testdata": "test.eml",
+    "testdata": "test.json",
     "expectedresult": "test.json"
-},
-{
-    "testdata": "testA.eml",
-    "expectedresult": "testA.json"
-},
-{
-    "testdata": "testB.eml",
-    "expectedresult": "testB.json"
-
-},
-{
-    "testdata": "testC.eml",
-    "expectedresult": "testC.json"
-
 }
 ]
