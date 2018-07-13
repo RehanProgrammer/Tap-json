@@ -1,0 +1,16 @@
+{
+  "mapping": {
+    "item": {
+      "EWR_FromHost": {
+        "item": {
+          "Holder To": "userEntered.HolderTo",
+          "Holder From": "extraInfo.HolderId",
+          "Batch Number": "extraInfo.BatchNum",
+          "Record Count": "$80",
+          "Total Weight": "$0",
+          "Hash Total": "$72162920"
+        }
+      }
+    }
+  }
+}
