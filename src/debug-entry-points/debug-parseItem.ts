@@ -10,6 +10,8 @@
 
 import * as fse from 'fs-extra'
 import { parseJson } from '../tap-main'
+import * as tapTypes from '../singer/tap-types'
+import * as parseItem from '../tap-main'
 import * as path from 'path'
 
 let fileToParse = process.argv[2] // process the file indicated by a parameter passed in
@@ -23,11 +25,13 @@ if (fileToParse.endsWith('.ts') || fileToParse.endsWith('.js')) {
     'Try opening a parsable test file (maybe something from "./testdata/tests"?) in the active tab and then debug again.'
   )
 } else console.log('Parsing "' + path.relative('.', fileToParse) + '" using parseJson')
-
+let configObjs: parseItem.allConfigs
 let debugParseItem = async () => {
   try {
-    let buffer = await fse.readFile(fileToParse)
-    let value = await parseJson(buffer, '')
+    let buffer = await fse.readFile('C:\\tap-json\\testdata\\maps\\test_forDetail.json')
+    let mapFile = await fse.readFile('C:\\tap-json\\testdata\\maps\\map_forheader.json')
+    configObjs.config.map = JSON.parse(mapFile.toString())
+    let value = await parseJson(buffer, configObjs)
     console.log(JSON.stringify(value))
   } catch (error) {
     console.error(error)

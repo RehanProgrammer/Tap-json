@@ -33,7 +33,7 @@ test('checking parseItem.', async () => {
 
     let data = await fse.readFile(inputDir + '/' + testdata)
     let map = await fse.readFile('C:\\tap-json\\testdata\\tests\\test.json')
-    let parsedresult = await parseJson(data, map)
+    let parsedresult = await parseJson(data, '')
     let expected = await fse.readJson(resultDir + '/' + expecteddata)
 
     expected.time_extracted = parsedresult.time_extracted.toISOString()

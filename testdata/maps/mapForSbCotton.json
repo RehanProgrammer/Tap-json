@@ -29,7 +29,7 @@
     "TareWt" : "$",
     "BagType" : "record.BAGGING",
     "Compression" : "$",
-    "BagCond" : "$I dont know",
+    "BagCond" : "$",
     "ClassDate" : "$",
     "ModAvgLoadType" : "record.CLOAD_TYPE",
     "ModAvgLoadNum" : "record.CLOAD_NUM",

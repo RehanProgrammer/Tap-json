@@ -38,9 +38,16 @@ export async function scanDir(configObjs: parseItem.allConfigs, parser: any) {
   let parsedObjs = await Promise.all(
     // return an array of promises, one per filename, for Promise.all to run asynchronously
     filelist.map(async function(filename, idx) {
-      let buffer = await fse.readFile(config.target_folder + '/' + filename)
-      let mapBuffer = await fse.readFile(config.map_folder + '/' + filename)
-      configObjs.config.map = JSON.parse(mapBuffer.toString())
+      let buffer
+      let mapBuffer
+      try {
+        buffer = await fse.readFile(config.target_folder + '/' + filename)
+        mapBuffer = await fse.readFile(config.map_folder + '/' + filename)
+        configObjs.config.map = JSON.parse(mapBuffer.toString())
+      } catch (e) {
+        console.log('the test file or map file doesnt exist')
+      }
+
       return parser(buffer, configObjs) // the parsing is done here
     })
   )

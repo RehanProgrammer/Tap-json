@@ -83,3 +83,5 @@ let lambdaEvent = {
     '{"toParse":{"userEntered":{"User Password":"ANITA","HolderTo":"Z439664","EAD Holder":"y"},"deliveryMethod":"Ewr","extraInfo":{"WhsCode":"880533","WhsTag":"0901997","CropYear":2017,"ConnectUsing":"Sync","FtpHost":"ftp.ewrinc.net","FtpLogin":"Z439664","FtpPassword":"texo2514","HolderId":"Z439664","UserId":"MORTON","BatchNum":"1519","CreateDate":"2018-01-22T18:00:00Z","CreateTime":"08:30:38"},"entities":[{"WhsCode":"880533","WhsTag":"0901997","CropYear":2017},{"WhsCode":"880533","WhsTag":"0901998","CropYear":2017},{"WhsCode":"880533","WhsTag":"0901999","CropYear":2017},{"WhsCode":"880533","WhsTag":"0902000","CropYear":2017},{"WhsCode":"880533","WhsTag":"0902001","CropYear":2017}]},"config":{"config":{"start_date":"2017-01-01T00:00:00Z","user_agent":"Stitch (+support@stitchdata.com)","map":{"mapping":{"item":{"Bale":[{"list":"entities","item":{"Warehouse Code":"WhsCode","Electronic Receipt Number":"WhsTag","Crop Year":"CropYear(NUMBER)","Purchase Order Number":"$","Invoice Number":"$","Mark":"$","Grower Reference Number":"$0"}}]}}}}}}',
   isBase64Encoded: false
 }
+
+handler.doParse(lambdaEvent, {}, callback)

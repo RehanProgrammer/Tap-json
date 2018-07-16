@@ -1,0 +1,72 @@
+{
+    "deliveryInfo": {
+      "Filename": "",
+      "Subject": "Ferguson - K & D Farms JV: 1303",
+      "Body": "",
+      "To": "kelly@texasorganic.com",
+      "CC": "",
+      "subject": "Ferguson - K & D Farms JV: 1303"
+    },
+    "filter": "((it.FarmRef == 228) and (it.CustomerRef == 91) and ( {{{Bale.NotARemnant}}}))",
+    "userEntered": {
+      "User Password": "ANITA",
+      "HolderTo": "Z439664",
+      "EAD Holder": "y"
+    },
+    "detailProperties": [
+      {
+        "Name": "WhsCode",
+        "DataType": "String",
+        "MaxLength": 6
+      },
+      {
+        "Name": "WhsTag",
+        "DataType": "String",
+        "MaxLength": 7
+      },
+      {
+        "Name": "CropYear",
+        "DataType": "String",
+        "MaxLength": 4
+      }
+    ],
+    "select": "new (WhsCode as WhsCode, WhsTag as WhsTag, CropYear as CropYear)",
+    "dataport": "Transfer.Transfer Loan Bales.ewrexp",
+    "deliveryMethod": "Ewr",
+    "extraInfo": {
+      "WhsCode": "880533",
+      "WhsTag": "0901997",
+      "CropYear": 2017,
+      "ConnectUsing": "Sync",
+      "FtpHost": "ftp.ewrinc.net",
+      "FtpLogin": "Z439664",
+      "FtpPassword": "texo2514",
+      "HolderId": "Z439664",
+      "UserId": "MORTON",
+      "BatchNum": "1519",
+      "CreateDate": "2018-01-22T18:00:00Z",
+      "CreateTime": "08:30:38"
+    },
+    "entities": [
+      {
+        "WhsCode": "880533",
+        "WhsTag": "0901997",
+        "CropYear": 2017
+      },
+      {
+        "WhsCode": "880533",
+        "WhsTag": "0901998",
+        "CropYear": 2017
+      },
+      {
+        "WhsCode": "880533",
+        "WhsTag": "0901999",
+        "CropYear": 2017
+      },
+      {
+        "WhsCode": "880533",
+        "WhsTag": "0902000",
+        "CropYear": 2017
+      }
+    ]
+  }
