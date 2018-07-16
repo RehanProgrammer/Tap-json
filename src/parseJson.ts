@@ -1,6 +1,4 @@
 import * as tapTypes from './singer/tap-types'
-//import * as configLoader from './singer/tap-load-config'
-//import * as configLoader from './tap-load-config'
 
 /** extend ConfigType as needed for this tap; this will describe tap-config.json */
 interface ConfigType extends tapTypes.ConfigType {
