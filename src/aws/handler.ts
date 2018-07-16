@@ -52,7 +52,14 @@ export async function doParse(event: any, context: any, callback: any) {
     callback(null, response)
   } catch (err) {
     console.log(err)
-    context.done(err, err)
+    response.statusCode = 500
+    response.body = JSON.stringify({ message: 'an error has occurred' })
+    // not returning as an error, per callback (error param is still null), but setting response to represent the error
+    callback(null, response)
+    //callback(new Error("an error has occurred"))
+    // These errors aren't getting passed all the way back through API Gateway, no matter what we do here. Set up API Gateway
+    // appears to be required: https://aws.amazon.com/blogs/compute/error-handling-patterns-in-amazon-api-gateway-and-aws-lambda/
+    // https://aws.amazon.com/premiumsupport/knowledge-center/malformed-502-api-gateway/
     return
   }
 }

@@ -9,7 +9,6 @@ import * as tapTypes from './tap-types'
 /** return an object containing the contents of config, state and catalog files */
 export function loadConfig(): Promise<tapTypes.allConfigs> {
   var args = process.argv.slice(2) // remove unneeded boilerplate args
-  console.log(args)
   if (args[0] != '--config') {
     console.error('arguments: --config CONFIG [--state STATE] [--properties CATALOG]')
     return new Promise(function(resolve, reject) {
