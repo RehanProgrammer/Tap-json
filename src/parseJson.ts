@@ -1,14 +1,15 @@
 import * as tapTypes from './singer/tap-types'
 
 /** extend ConfigType as needed for this tap; this will describe tap-config.json */
-interface ConfigType extends tapTypes.ConfigType {
+export interface ConfigType extends tapTypes.ConfigType {
   /** set the name of the stream to be returned by the parser */
   stream_name?: string
   /** tap-json needs a map to describe the desired conversion  */
   map?: any
+  map_folder?: string
 }
 /** extend allConfigs to use our extended ConfigType */
-interface allConfigs extends tapTypes.allConfigs {
+export interface allConfigs extends tapTypes.allConfigs {
   config: ConfigType
 }
 

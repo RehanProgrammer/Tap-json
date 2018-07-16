@@ -9,7 +9,7 @@ export default class DummyClass {}
 
 import * as configLoader from './singer/tap-load-config'
 import * as parseJson from './parseJson'
-export { parseJson } from './parseJson'
+export * from './parseJson'
 import * as scanDir from './scan-dir'
 
 // show developers that code has started to run
