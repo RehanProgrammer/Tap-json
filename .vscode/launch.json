@@ -59,7 +59,7 @@
             "name": "Debug parseItem using current opened test file",
             "type": "node",
             "request": "launch",
-            "args": ["src/debug-entry-points/debug-parseItem.ts", "${file}"],
+            "args": ["src/debug-entry-points/debug-parseItem.ts", "--config" ,"tap-config.json","${file}"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
