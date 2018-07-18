@@ -15,6 +15,7 @@ import * as parseItem from '../tap-main'
 import * as path from 'path'
 import * as configLoader from '../singer/tap-load-config'
 let pathOftap_config = './tap-config.json'
+
 let fileToParse = process.argv[4] // process the file indicated by a parameter passed in
 if (fileToParse.endsWith('.ts') || fileToParse.endsWith('.js')) {
   console.error(
@@ -27,47 +28,27 @@ if (fileToParse.endsWith('.ts') || fileToParse.endsWith('.js')) {
   )
 } else console.log('Parsing "' + path.relative('.', fileToParse) + '" using parseJson')
 
-let configObjs: parseItem.allConfigs
-
-configLoader
-  .loadConfig()
-  .then(data => {
-    console.log(data)
-    configObjs = data
-  })
-  .catch(error => {
-    console.log(error)
-  })
-
-let debugParseItem = async () => {
+debugParseItem()
+async function debugParseItem() {
   try {
-    let buffer = await fse.readFile(fileToParse)
-    let value = await parseJson(buffer, configObjs)
-    console.log(JSON.stringify(value))
+    let configObjs: parseItem.allConfigs
+    configObjs = await configLoader.loadConfig()
+    let debugParseItem = async () => {
+      try {
+        let buffer = await fse.readFile(fileToParse)
+        var filename = fileToParse.replace(/^.*[\\\/]/, '') //since fileToparse is a path, I have used this regex to read  just the filaname
+        let mapBuffer = await fse.readFile(configObjs.config.map_folder + '/' + filename)
+        mapBuffer = JSON.parse(mapBuffer.toString())
+        configObjs.config.map = mapBuffer
+        let value = await parseJson(buffer, configObjs)
+        console.log(JSON.stringify(value))
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    debugParseItem() // run
   } catch (error) {
-    console.error(error)
+    console.log('error shown')
   }
 }
-
-debugParseItem() // run
-
-/*fse.readFile(pathOftap_config).then((data) =>{
-        console.log(data);
-        configObjs = JSON.parse(pathOftap_config.toString());
-      })*/
-
-//   ).then(function(configObjs: parseItem.allConfigs){
-//     fse.readFile(configObjs.config.map_folder + '/' + fileToParse)
-//    .then( (data) => {
-//      let mapBuffer = data;
-//      configObjs.config.map = JSON.parse(mapBuffer.toString())
-//    } )
-//   }
-
-// )
-// let config = <parseItem.ConfigType>JSON.parse(buffer.toString())
-/*fse.readFile(configObjs.config.map_folder + '/' + fileToParse)
-     .then( (data) => {
-       let mapBuffer = data;
-       configObjs.config.map = JSON.parse(mapBuffer.toString())
-     } )*/
