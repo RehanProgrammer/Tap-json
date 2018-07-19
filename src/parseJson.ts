@@ -13,7 +13,7 @@ export interface allConfigs extends tapTypes.allConfigs {
   config: ConfigType
 }
 
-var DataTransform = require('json-transformer-node') //require('node-json-transform').DataTransform
+var transform = require('qewd-transform-json').transform
 
 export async function parseJson(toParse: any, configObjs: allConfigs) {
   let toParseObj
@@ -24,12 +24,10 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
   } else if (toParse instanceof Object) {
     toParseObj = toParse
   }
-  var result = DataTransform.transform(toParseObj, configObjs.config.map) //in order to change to output to a array format use "objectify". see https://www.npmjs.com/package/json-transformer-node for more more info
-  // let rec = new tapTypes.streamRecord()
-  // rec.stream = configObjs.config.stream_name
-  // rec.time_extracted = new Date()
-  // rec.record = result
-  // return rec
-  // temporarily returning a raw object instead of a MessagePacket record
-  return result
+  var result = transform(configObjs.config.map, toParseObj)
+  let rec = new tapTypes.streamRecord()
+  rec.stream = configObjs.config.stream_name
+  rec.time_extracted = new Date()
+  rec.record = result
+  return rec
 }

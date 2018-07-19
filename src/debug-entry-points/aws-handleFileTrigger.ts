@@ -18,6 +18,7 @@ function callback(error: any, result: Object) {
 }
 
 let args = process.argv.slice(2) // remove unneeded boilerplate args
+
 // pass in the first command line parameter (which should be a file name) in place of AWS' "event" object. handleFileTrigger will
 // load that file as its input
 handler.handleFileTrigger(args[0], {}, callback)

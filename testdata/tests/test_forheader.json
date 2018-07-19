@@ -9,7 +9,7 @@
   },
   "filter": "((it.FarmRef == 228) and (it.CustomerRef == 91) and ( {{{Bale.NotARemnant}}}))",
   "userEntered": {
-    "User Password": "ANITA",
+    "UserPassword": "password",
     "HolderTo": "Z439664",
     "EAD Holder": "y"
   },

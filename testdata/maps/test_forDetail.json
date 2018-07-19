@@ -1,20 +1,14 @@
 {
-  "mapping": {
-    "item": {
-      "Bale": [
-        {
-          "list": "entities",
-          "item": {
-            "Warehouse Code": "WhsCode",
-            "Electronic Receipt Number": "WhsTag",
-            "Crop Year": "CropYear(NUMBER)",
-            "Purchase Order Number": "$",
-            "Invoice Number": "$",
-            "Mark": "$",
-            "Grower Reference Number": "$0"
-          }
-        }
-      ]
+  "Bale": [
+    "{{entities}}",
+    {
+      "Warehouse Code": "{{WhsCode}}",
+      "Electronic Receipt Number": "{{WhsTag}}",
+      "Crop Year": "{{CropYear}}",
+      "Purchase Order Number": "(no output)",
+      "Invoice Number": "(no outPut)",
+      "Mark": "(no output)",
+      "Grower Reference Number": "(no output)"
     }
-  }
+  ]
 }
