@@ -1,0 +1,30 @@
+{
+    "mapping": {
+        "item": {
+            "saveOptions": {
+                "EnablePartialUpdates": "$true"
+            },
+            "entities": {
+                "objectify": "record",
+                "item": {
+                    "FarmRef" : "FARM_ID(NUMBER)",
+                    "CustomerRef" : "PROD_ID(NUMBER)",
+                    "FarmName" : "FIELD_DESC",
+                    "FarmSerial" : "FSA_NUM",
+                    "MilesFromGin" : "DISTANCE(NUMBER)",
+                    "CountyCode" : "$",
+                    "StateCode" : "$",
+                    "DirectionstoField" : "FIELD_LOC1",
+                    "FarmCode" : "FARM_ID",
+                    "Lienholders" : "LIENHOLDER",
+                    "Contract" : "$",
+                    "ImportMatch" : "PROD_ID~~FARM_ID",
+                    "entityAspect": {
+                        "entityState": "$Added",
+                        "entityTypeName": "$Farm:#GinProServer2"
+                    }
+                }
+            }
+        }
+    }
+}

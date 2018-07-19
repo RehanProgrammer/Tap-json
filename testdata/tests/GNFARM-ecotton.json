@@ -1,0 +1,29 @@
+{
+	"type": "RECORD",
+	"stream": "dbf",
+	"record": {
+		"@numOfRecord": 1,
+		"@deleted": false,
+		"PROD_ID": "280",
+		"FARM_ID": "2220",
+		"FIELD_ID": "N/A",
+		"VARIETY": "",
+		"PICK": "1",
+		"AREA": 0,
+		"DISTANCE": 0,
+		"FIELD_DESC": "",
+		"FIELD_LOC1": "",
+		"FIELD_LOC2": "",
+		"LOAD_AVG": true,
+		"COMPLETED": false,
+		"FLD_MISC": "",
+		"MISCNUMFLD": 0,
+		"MISC_FLAGS": "",
+		"ZUDEFAULT": true,
+		"ZUPRICCHRT": 0,
+		"ZUINTELGIN": false,
+		"DT_PLANTED": "",
+		"IRRIGATED": false,
+		"INACTIVE": false
+	}
+}
