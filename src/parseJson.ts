@@ -25,9 +25,11 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
     toParseObj = toParse
   }
   var result = DataTransform.transform(toParseObj, configObjs.config.map) //in order to change to output to a array format use "objectify". see https://www.npmjs.com/package/json-transformer-node for more more info
-  let rec = new tapTypes.streamRecord()
-  rec.stream = configObjs.config.stream_name
-  rec.time_extracted = new Date()
-  rec.record = result
-  return rec
+  // let rec = new tapTypes.streamRecord()
+  // rec.stream = configObjs.config.stream_name
+  // rec.time_extracted = new Date()
+  // rec.record = result
+  // return rec
+  // temporarily returning a raw object instead of a MessagePacket record
+  return result
 }

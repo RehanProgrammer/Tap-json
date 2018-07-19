@@ -1,27 +1,31 @@
 {
-    "mapping" : {
-        "item":{
-            "arrayItems": {
+    "mapping": {
+        "item": {
+            "saveOptions": {
+                "EnablePartialUpdates": "$true"
+            },
+            "entities": {
                 "objectify": "record",
                 "item": {
-                    "CustomerRef" : "$2",
-                    "last": "$",
-                    "first": "$",
-                    "FullName": "Name",
-                    "TaxNum": "$(no match)",
+                    "CustomerRef": "PROD_ID",
+                    "Last": "$",
+                    "First": "NAME",
+                    "TaxNum": "FED_ID",
                     "Address": "ADDRESS1",
-                    "Address optional" : "ADDRESS2",
                     "City": "CITY",
                     "State": "STATE",
                     "Zip": "ZIPCODE",
-                    "Phone": "PHONE_NUM(NUMBER)",
-                    "CustomerCode" : "SDBUYER_ID",
-                    "BusinessType" : "$(no match)",
+                    "Phone": "MOBILE_NUM",
+                    "CustomerCode": "PROD_ID",
+                    "BusinessType": "$",
                     "EwrID": "FED_ID",
                     "Email": "EMAIL",
-                    "Password": "$(no match)",
-                    "Version" : "$(no match)",
-		            "ImportMatch" : "$(no match)"
+                    "Password": "$",
+                    "ImportMatch": "PROD_ID",
+                    "entityAspect": {
+                        "entityState": "$Added",
+                        "entityTypeName": "$Customer:#GinProServer2"
+                    }
                 }
             }
         }
