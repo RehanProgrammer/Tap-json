@@ -1,29 +1,263 @@
 {
-	"type": "RECORD",
-	"stream": "dbf",
-	"record": {
-		"@numOfRecord": 1,
-		"@deleted": false,
-		"PROD_ID": "280",
-		"FARM_ID": "2220",
-		"FIELD_ID": "N/A",
-		"VARIETY": "",
-		"PICK": "1",
-		"AREA": 0,
-		"DISTANCE": 0,
-		"FIELD_DESC": "",
-		"FIELD_LOC1": "",
-		"FIELD_LOC2": "",
-		"LOAD_AVG": true,
-		"COMPLETED": false,
-		"FLD_MISC": "",
-		"MISCNUMFLD": 0,
-		"MISC_FLAGS": "",
-		"ZUDEFAULT": true,
-		"ZUPRICCHRT": 0,
-		"ZUINTELGIN": false,
-		"DT_PLANTED": "",
-		"IRRIGATED": false,
-		"INACTIVE": false
-	}
-}
+	"STATE": {
+	  "type": "STATE",
+	  "tap_log": [],
+	  "envelope": {},
+	  "errors": []
+	},
+	"SCHEMA": [
+	  {
+		"type": "SCHEMA",
+		"key_properties": [],
+		"stream": "dbf",
+		"schema": {
+		  "$schema": "http://json-schema.org/draft-04/schema#",
+		  "type": "object",
+		  "properties": {
+			"@meta": {
+			  "type": "object",
+			  "properties": {
+				"deleted": {
+				  "type": "boolean"
+				}
+			  }
+			},
+			"PROD_ID": {
+			  "type": "string"
+			},
+			"FARM_ID": {
+			  "type": "string"
+			},
+			"FSA_NUM": {
+			  "type": "string"
+			},
+			"TRACT_NUM": {
+			  "type": "string"
+			},
+			"WH_ID": {
+			  "type": "number"
+			},
+			"PILE_ID": {
+			  "type": "string"
+			},
+			"DISTANCE": {
+			  "type": "number"
+			},
+			"AREA": {
+			  "type": "number"
+			},
+			"FARM_LOC1": {
+			  "type": "string"
+			},
+			"FARM_LOC2": {
+			  "type": "string"
+			},
+			"CHG_TABLE": {
+			  "type": "string"
+			},
+			"INC_PRCHGS": {
+			  "type": "boolean"
+			},
+			"LLGROUP_ID": {
+			  "type": "string"
+			},
+			"LIENHOLDER": {
+			  "type": "string"
+			},
+			"LOAN_ELIG": {
+			  "type": "boolean"
+			},
+			"FIELDS": {
+			  "type": "boolean"
+			},
+			"LOAD_AVG": {
+			  "type": "boolean"
+			},
+			"FARM_MISC": {
+			  "type": "string"
+			},
+			"LBALE_TRAN": {
+			  "type": "number"
+			},
+			"MIN_BALES": {
+			  "type": "number"
+			},
+			"MAX_BALES": {
+			  "type": "number"
+			},
+			"LSAFSA_NUM": {
+			  "type": "string"
+			},
+			"MISC_FLAGS": {
+			  "type": "string"
+			},
+			"ZUDEFAULT": {
+			  "type": "boolean"
+			},
+			"ZUPRICCHRT": {
+			  "type": "number"
+			},
+			"ZUINTELGIN": {
+			  "type": "boolean"
+			},
+			"CLP_ID": {
+			  "type": "string"
+			},
+			"DT_PLANTED": {
+			  "type": "string",
+			  "format": "date-time"
+			},
+			"LOANCTNNUM": {
+			  "type": "string"
+			},
+			"GIN_OWNED": {
+			  "type": "boolean"
+			},
+			"INACTIVE": {
+			  "type": "boolean"
+			},
+			"COMPLETED": {
+			  "type": "boolean"
+			},
+			"TRNRCPSEAM": {
+			  "type": "boolean"
+			},
+			"LOANLDPTYP": {
+			  "type": "number"
+			}
+		  }
+		}
+	  }
+	],
+	"RECORD": [
+	  {
+		"type": "RECORD",
+		"stream": "dbf",
+		"record": {
+		  "@meta": {
+			"deleted": false
+		  },
+		  "PROD_ID": "165",
+		  "FARM_ID": "895",
+		  "FSA_NUM": "0105100895",
+		  "TRACT_NUM": "0105100895",
+		  "WH_ID": 0,
+		  "PILE_ID": "",
+		  "DISTANCE": 0,
+		  "AREA": 0,
+		  "FARM_LOC1": "",
+		  "FARM_LOC2": "",
+		  "CHG_TABLE": "",
+		  "INC_PRCHGS": true,
+		  "LLGROUP_ID": "",
+		  "LIENHOLDER": "",
+		  "LOAN_ELIG": true,
+		  "FIELDS": false,
+		  "LOAD_AVG": true,
+		  "FARM_MISC": "",
+		  "LBALE_TRAN": 0,
+		  "MIN_BALES": 0,
+		  "MAX_BALES": 0,
+		  "LSAFSA_NUM": "",
+		  "MISC_FLAGS": "",
+		  "ZUDEFAULT": true,
+		  "ZUPRICCHRT": 0,
+		  "ZUINTELGIN": false,
+		  "CLP_ID": "",
+		  "DT_PLANTED": "1899-12-31T06:00:00.000Z",
+		  "LOANCTNNUM": "",
+		  "GIN_OWNED": false,
+		  "INACTIVE": false,
+		  "COMPLETED": false,
+		  "TRNRCPSEAM": false,
+		  "LOANLDPTYP": 1
+		}
+	  },
+	  {
+		"type": "RECORD",
+		"stream": "dbf",
+		"record": {
+		  "@meta": {
+			"deleted": false
+		  },
+		  "PROD_ID": "165",
+		  "FARM_ID": "1570",
+		  "FSA_NUM": "0105101570",
+		  "TRACT_NUM": "0105101570",
+		  "WH_ID": 0,
+		  "PILE_ID": "",
+		  "DISTANCE": 0,
+		  "AREA": 0,
+		  "FARM_LOC1": "",
+		  "FARM_LOC2": "",
+		  "CHG_TABLE": "",
+		  "INC_PRCHGS": true,
+		  "LLGROUP_ID": "1570",
+		  "LIENHOLDER": "",
+		  "LOAN_ELIG": true,
+		  "FIELDS": false,
+		  "LOAD_AVG": true,
+		  "FARM_MISC": "",
+		  "LBALE_TRAN": 0,
+		  "MIN_BALES": 0,
+		  "MAX_BALES": 0,
+		  "LSAFSA_NUM": "",
+		  "MISC_FLAGS": "",
+		  "ZUDEFAULT": true,
+		  "ZUPRICCHRT": 0,
+		  "ZUINTELGIN": false,
+		  "CLP_ID": "",
+		  "DT_PLANTED": "1899-12-31T06:00:00.000Z",
+		  "LOANCTNNUM": "",
+		  "GIN_OWNED": false,
+		  "INACTIVE": false,
+		  "COMPLETED": false,
+		  "TRNRCPSEAM": false,
+		  "LOANLDPTYP": 1
+		}
+	  },
+	  {
+		"type": "RECORD",
+		"stream": "dbf",
+		"record": {
+		  "@meta": {
+			"deleted": false
+		  },
+		  "PROD_ID": "280",
+		  "FARM_ID": "2220",
+		  "FSA_NUM": "0105102220",
+		  "TRACT_NUM": "0105102220",
+		  "WH_ID": 0,
+		  "PILE_ID": "",
+		  "DISTANCE": 0,
+		  "AREA": 0,
+		  "FARM_LOC1": "",
+		  "FARM_LOC2": "",
+		  "CHG_TABLE": "",
+		  "INC_PRCHGS": true,
+		  "LLGROUP_ID": "2220",
+		  "LIENHOLDER": "",
+		  "LOAN_ELIG": true,
+		  "FIELDS": false,
+		  "LOAD_AVG": true,
+		  "FARM_MISC": "FAF",
+		  "LBALE_TRAN": 0,
+		  "MIN_BALES": 0,
+		  "MAX_BALES": 0,
+		  "LSAFSA_NUM": "",
+		  "MISC_FLAGS": "",
+		  "ZUDEFAULT": true,
+		  "ZUPRICCHRT": 0,
+		  "ZUINTELGIN": false,
+		  "CLP_ID": "",
+		  "DT_PLANTED": "1899-12-31T06:00:00.000Z",
+		  "LOANCTNNUM": "",
+		  "GIN_OWNED": false,
+		  "INACTIVE": false,
+		  "COMPLETED": false,
+		  "TRNRCPSEAM": false,
+		  "LOANLDPTYP": 1
+		}
+	  }
+	]
+  }
