@@ -28,8 +28,8 @@ if (fileToParse.endsWith('.ts') || fileToParse.endsWith('.js')) {
   )
 } else console.log('Parsing "' + path.relative('.', fileToParse) + '" using parseJson')
 
-debugParseItem()
-async function debugParseItem() {
+debugParseIteM()
+async function debugParseIteM() {
   try {
     let configObjs: parseItem.allConfigs
     configObjs = await configLoader.loadConfig()

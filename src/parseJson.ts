@@ -24,7 +24,16 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
   } else if (toParse instanceof Object) {
     toParseObj = toParse
   }
-  var result = transform(configObjs.config.map, toParseObj)
+  var counter = 0
+  let recordCount = function() {
+    counter++
+    return counter
+  }
+  let sumCount = function() {
+    return counter
+  }
+  var result = transform(configObjs.config.map, toParseObj, { recordCount, sumCount })
+
   let rec = new tapTypes.streamRecord()
   rec.stream = configObjs.config.stream_name
   rec.time_extracted = new Date()

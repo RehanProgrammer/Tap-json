@@ -115,10 +115,8 @@
     "@types/mailparser": "^2.0.2",
     "fs-extra": "^6.0.1",
     "generate-schema": "^2.6.0",
-    "json-transformer-node": "^1.0.4",
     "lodash": "^4.17.10",
     "mailparser": "^2.2.0",
-    "node-json-transform": "^1.0.16",
     "qewd-transform-json": "^1.10.0"
   }
 }

@@ -1,30 +1,28 @@
 {
-    "mapping": {
-        "item": {
-            "saveOptions": {
-                "EnablePartialUpdates": "$true"
-            },
-            "entities": {
-                "objectify": "record",
-                "item": {
-                    "FarmRef" : "FARM_ID(NUMBER)",
-                    "CustomerRef" : "PROD_ID(NUMBER)",
-                    "FarmName" : "FIELD_DESC",
-                    "FarmSerial" : "FSA_NUM",
-                    "MilesFromGin" : "DISTANCE(NUMBER)",
-                    "CountyCode" : "$",
-                    "StateCode" : "$",
-                    "DirectionstoField" : "FIELD_LOC1",
-                    "FarmCode" : "FARM_ID",
-                    "Lienholders" : "LIENHOLDER",
-                    "Contract" : "$",
-                    "ImportMatch" : "PROD_ID~~FARM_ID",
-                    "entityAspect": {
-                        "entityState": "$Added",
-                        "entityTypeName": "$Farm:#GinProServer2"
-                    }
-                }
+    "saveOptions": {
+        "EnablePartialUpdates": true
+    },
+    "Record": [
+        "{{RECORD}}",
+        {
+            "FarmRef": "{{record.FARM_ID}}",
+            "CustomerRef": "{{record.PROD_ID}}",
+            "FarmName": "{{record.FIELD_DESC}}",
+            "FarmSerial": "{{reord.FSA_NUM}}",
+            "MilesFromGin": "{{record.DISTANCE}}",
+            "counter": "=>recordCount()",
+            "CountyCode": "(no output?)",
+            "StateCode": "(no output?)",
+            "DirectionstoField": "{{record.FIELD_LOC1}}",
+            "FarmCode": "{{record.FARM_ID}}",
+            "Lienholders": "{{record.LIENHOLDER}}",
+            "Contract": "(no output?)",
+            "ImportMatch": "{{record.PROD_ID}}{{record.FARM_ID}}",
+            "entityAspect": {
+                "entityState": "Added",
+                "entityTypeName": "Farm:#GinProServer2"
             }
         }
-    }
+    ],
+    "sumOfRecords": "=>sumCount()"
 }
