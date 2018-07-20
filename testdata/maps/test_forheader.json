@@ -1,23 +1,14 @@
 {
-  
-  "mapping": {
-    "item": {
-      "EWR_ToHost": {
-        "item": {
-          "Holder ID": "extraInfo.HolderId",
-          "User ID": "extraInfo.UserId",
-          "User Password": "userEntered.User_Password",
-          "Batch Number": "extraInfo.BatchNum",
-          "Batch Type": "$52(NUMBER)",
-          "Batch Date": "$2018-01-22T00:00:00.000Z",
-          "Batch Time": "$2018-07-09T08:30:38.000Z",
-          "Buyer ID": "userEntered.HolderTo",
-          "Send Detail": "userEntered.EAD_Holder",
-          "Certificated Type": "$",
-          "Only Block Receipts": "$",
-          "Loan Transfer": "$"
-        }
-      }
-    }
-  }
+      "Holder ID": "{{extraInfo.HolderId}}",
+      "User ID": "{{extraInfo.UserId}}",
+      "User Password": "{{userEntered.UserPassword}}",
+      "Batch Number": "{{extraInfo.BatchNum}}",
+      "Batch Type": 52,
+      "Batch Date": "2018-01-22T00:00:00.000Z",
+      "Batch Time": "2018-07-09T08:30:38.000Z",
+      "Buyer ID": "{{userEntered.HolderTo}}",
+      "Send Detail": "{{userEntered.EAD_Holder}}",
+      "Certificated Type": "(not output)",
+      "Only Block Receipts": "(no output)",
+      "Loan Transfer": "(no output)"
 }
