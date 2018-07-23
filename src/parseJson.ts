@@ -24,15 +24,20 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
   } else if (toParse instanceof Object) {
     toParseObj = toParse
   }
-  var counter = 0
-  let recordCount = function() {
-    counter++
-    return counter
+
+  let counters: any = {}
+  /** Increment the indicated value by adding incAmt. Returns null, so the object containing this call is unaffected
+   */
+  let incCounter = function(name: string, incAmt: any) {
+    if (!counters[name]) counters[name] = 0
+    counters[name] += 1 * incAmt
   }
-  let sumCount = function() {
-    return counter
+  /** Gets an existing counter. If incAmt is passed in, increment first and then return the counter */
+  let getCounter = function(name: string, incAmt?: any) {
+    if (incAmt) incCounter(name, incAmt)
+    return counters[name]
   }
-  var result = transform(configObjs.config.map, toParseObj, { recordCount, sumCount })
+  var result = transform(configObjs.config.map, toParseObj, { incCounter, getCounter })
 
   let rec = new tapTypes.streamRecord()
   rec.stream = configObjs.config.stream_name

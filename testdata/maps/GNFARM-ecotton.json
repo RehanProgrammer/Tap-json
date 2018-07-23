@@ -10,7 +10,7 @@
             "FarmName": "{{record.FIELD_DESC}}",
             "FarmSerial": "{{reord.FSA_NUM}}",
             "MilesFromGin": "{{record.DISTANCE}}",
-            "counter": "=>recordCount()",
+            "counter": "=>incCounter('zz',-1)",
             "CountyCode": "(no output?)",
             "StateCode": "(no output?)",
             "DirectionstoField": "{{record.FIELD_LOC1}}",
@@ -24,5 +24,5 @@
             }
         }
     ],
-    "sumOfRecords": "=>sumCount()"
+    "sumOfRecords": "=>getCounter('zz')"
 }
