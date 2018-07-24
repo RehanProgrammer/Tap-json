@@ -27,7 +27,7 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
   }
   if (toParseObj instanceof Array) {
     toParseObj = {
-      dummy: toParseObj
+      '@rootArray': toParseObj
     }
   }
 
