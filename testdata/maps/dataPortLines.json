@@ -1,0 +1,41 @@
+{
+    "rootArray": [
+        "{{dummy}}",
+        {
+            "Name" : "{{Name}}",
+            "Description": "{{Description}}",
+            "RecSize" : "{{RecSize}}",
+            "TrimSize": "{{TrimSize}}",
+            "Tolerance": "{{Tolerance}}",
+            "EntityType":"{{EntityType}}",
+            "Position" : "{{Position}}",
+            "FileType":"{{FileType}}",
+            "DataSource" : "{{DataSource}}",
+            "import_CombineLines":"{{import_CombineLines}}",
+            "import_NestSequential":"{{import_NestSequential}}",
+            "import_KeyFields":"{{import_KeyFields}}",
+            "Fields": [
+                "{{Fields}}",
+                {
+                    "TapName": "{{Name}}",
+                    "TargetName": "{{Name}}",
+                    "FixedStart": "{{Start}}",
+                    "FixedLength": "{{Length}}",
+                    "DataType:": "{{DataType}}",
+                    "Description": "{{Description}}",
+                    "TargetPicture": "{{Picture}}",
+                    "ignoreOnImport": "{{ignoreOnImport}}",
+                    "ExportTemplate": "",
+                    "ImportTemplate": "",
+                    "Value": "{{Value}}",
+                    "ImportRegex": [
+                        "{{ToCanonical}}"
+                    ],
+                    "ExportRegex":[ 
+                        "{{FromCanonical}}"
+                    ]
+                }
+            ]
+        }
+    ]
+}

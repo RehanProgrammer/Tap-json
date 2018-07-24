@@ -1,4 +1,5 @@
 import * as tapTypes from './singer/tap-types'
+import { exists } from 'fs'
 
 /** extend ConfigType as needed for this tap; this will describe tap-config.json */
 export interface ConfigType extends tapTypes.ConfigType {
@@ -24,6 +25,11 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
   } else if (toParse instanceof Object) {
     toParseObj = toParse
   }
+  if (toParseObj instanceof Array) {
+    toParseObj = {
+      dummy: toParseObj
+    }
+  }
 
   let counters: any = {}
   /** Increment the indicated value by adding incAmt. Returns null, so the object containing this call is unaffected
@@ -37,8 +43,10 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
     if (incAmt) incCounter(name, incAmt)
     return counters[name]
   }
-  var result = transform(configObjs.config.map, toParseObj, { incCounter, getCounter })
-
+  let result = transform(configObjs.config.map, toParseObj, { incCounter, getCounter })
+  if (result.rootArray) {
+    result = result.rootArray
+  }
   let rec = new tapTypes.streamRecord()
   rec.stream = configObjs.config.stream_name
   rec.time_extracted = new Date()
