@@ -44,8 +44,8 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
     return counters[name]
   }
   let result = transform(configObjs.config.map, toParseObj, { incCounter, getCounter })
-  if (result.rootArray) {
-    result = result.rootArray
+  if (result['@rootArray']) {
+    result = result['@rootArray']
   }
   let rec = new tapTypes.streamRecord()
   rec.stream = configObjs.config.stream_name
