@@ -1,6 +1,6 @@
 {
-    "@rootArray": [
-        "{{['@rootArray']}}",
+    "__rootArray": [
+        "{{__rootArray}}",
         {
             "Name" : "{{Name}}",
             "Description": "{{Description}}",
