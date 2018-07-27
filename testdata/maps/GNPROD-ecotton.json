@@ -1,23 +1,21 @@
 {
     "Customer": [
+        "{{RECORD}}",
         {
-            "CustomerRef": "(no output)",
-            "last": "(no output)",
-            "first": "{{record.NAME}}",
-            "TaxNum": "(no match)",
-            "Address": "record.ADDRESS1",
-            "Address optional": "ADDRESS2",
+            "CustomerRef":"=> getCounter('CustomerRef',-1)",
+            "Last": "{{record.NAME}}",
+            "TaxNum": "{{record.FED_ID}}",
+            "Address": "{{record.ADDRESS1}} {{record.ADDRESS2}}",
             "City": "{{record.CITY}}",
             "State": "{{record.STATE}}",
             "Zip": "{{record.ZIPCODE}}",
-            "Phone": "{{record.PHONE_NUM}}",
-            "CustomerCode": "{{record.SDBUYER_ID}}",
-            "BusinessType": "(no match)",
-            "EwrID": "{{record.FED_ID}}",
+            "Phone": "{{record.MOBILE_NUM}}",
+            "CustomerCode": "{{record.PROD_ID}}",
+            "BusinessType": "Producer",
+            "EwrID": "",
             "Email": "{{record.EMAIL}}",
-            "Password": "(no match)",
-            "Version": "(no match)",
-            "ImportMatch": "(no match)"
+            "ImportMatch": "{{record.PROD_ID}}"
         }
-    ]
+    ],
+    "parseInfo": "(required for import)"
 }
