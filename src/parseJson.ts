@@ -54,7 +54,13 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
       rec.time_extracted = new Date()
       rec.record = result[i]
       result[i] = rec
-    }
+    } //end of for loop
+  } else {
+    let rec = new tapTypes.streamRecord()
+    rec.stream = configObjs.config.stream_name
+    rec.time_extracted = new Date()
+    rec.record = result
+    return rec
   }
   return result
 }
