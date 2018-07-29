@@ -1,87 +1,519 @@
 {
-    "type": "RECORD",
-    "stream": "GNBALE.DBF",
-    "record": {
-        "@numOfRecord": 1,
-        "@deleted": false,
-        "TYPE": "P",
-        "GIN_BALE": 24134,
-        "LOAD_NUM": 1,
-        "GIN_ID": 7507,
-        "GIN_WT": 582,
-        "GIN_TARE": 5,
-        "BAGGING": 0,
-        "TIES": 0,
-        "SEED_WT": 635,
-        "SHIFT": 1,
-        "PROD_ID": "400",
-        "OWNER_ID": "400",
-        "FARM_ID": "1752",
-        "FIELD_ID": "N/A",
-        "PICK": "1",
-        "DT_GIN": "20171010",
-        "BIRTH_DT": "",
-        "BIRTH_TIME": "",
-        "LABOR_SECS": 0,
-        "GRADE": 41,
-        "STAPLE": 35,
-        "MIC": 4.6,
-        "LEAF": 4,
-        "EXT_MATTER": 0,
-        "REMARKS": 0,
-        "STRENGTH": 29,
-        "COLOR_GR": "41-3",
-        "COLOR_RD": 74.4,
-        "COLOR_B": 8.6,
-        "TRASH": 5,
-        "UNIFORM": 82.3,
-        "LENGTH": 110,
-        "ELONGATION": 0,
-        "MOIST_PRE": 0,
-        "MOIST_POST": 0,
-        "DT_CLASS": "20171016",
-        "CLASS_CORR": "0",
-        "CCC_LOAN": "+0110",
-        "VAL_LOAN": 50.59,
-        "VAL_SEED": 25.4,
-        "WH_ID": 54205,
-        "WH_BALE": 24134,
-        "WH_WT": 577,
-        "DT_STORED": "20171010",
-        "BIRTH_NUM": 0,
-        "P_CHARGE": 29.28,
-        "L_CHARGE": 0,
-        "L_SDCREDIT": 0,
-        "TA_NUM": 0,
-        "RETEST": "0",
-        "CARD_TYPE": "1",
-        "LOANSTATUS": "",
-        "LOAN_NUM": 0,
-        "CCC_SENT": false,
-        "CLOAD_TYPE": "1",
-        "CLOAD_NUM": 3191,
-        "CBALECOUNT": 16,
-        "CPROD_ACCT": "",
-        "PR_RECAP": 0,
-        "PR_INVOICE": 0,
-        "SL_RECAP": 0,
-        "SL_INVOICE": 0,
-        "PR_CONTRID": "AUTAUGA",
-        "PR_CONTRNM": 145,
-        "SL_CONTRID": "AUTAUGA",
-        "EWRXFER_DT": "20171011",
-        "EWRXFER_TO": "AUTAUGA",
-        "HOLD_POST": false,
-        "SENT": "Y",
-        "BLGRP_APP": "",
-        "BLGRP_BD": "",
-        "USER_FLAGS": "",
-        "LASTEWRUPD": 1,
-        "FIREBALE": false,
-        "MISC_FLAGS": "",
-        "CON_TRANS": false,
-        "CON_RECAP": false,
-        "CON_LOAN": false,
-        "CON_COMMIT": false
-    }
-}
+    "STATE": {
+      "type": "STATE",
+      "tap_log": [],
+      "envelope": {},
+      "errors": []
+    },
+    "SCHEMA": [
+      {
+        "type": "SCHEMA",
+        "key_properties": [],
+        "stream": "GNBALE.dbf",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "@meta": {
+              "type": "object",
+              "properties": {
+                "deleted": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "TYPE": {
+              "type": "string"
+            },
+            "GIN_BALE": {
+              "type": "number"
+            },
+            "LOAD_NUM": {
+              "type": "number"
+            },
+            "GIN_ID": {
+              "type": "number"
+            },
+            "GIN_WT": {
+              "type": "number"
+            },
+            "GIN_TARE": {
+              "type": "number"
+            },
+            "BAGGING": {
+              "type": "number"
+            },
+            "TIES": {
+              "type": "number"
+            },
+            "SEED_WT": {
+              "type": "number"
+            },
+            "SHIFT": {
+              "type": "number"
+            },
+            "PROD_ID": {
+              "type": "string"
+            },
+            "OWNER_ID": {
+              "type": "string"
+            },
+            "FARM_ID": {
+              "type": "string"
+            },
+            "FIELD_ID": {
+              "type": "string"
+            },
+            "PICK": {
+              "type": "string"
+            },
+            "DT_GIN": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "BIRTH_DT": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "BIRTH_TIME": {
+              "type": "string"
+            },
+            "LABOR_SECS": {
+              "type": "number"
+            },
+            "GRADE": {
+              "type": "number"
+            },
+            "STAPLE": {
+              "type": "number"
+            },
+            "MIC": {
+              "type": "number"
+            },
+            "LEAF": {
+              "type": "number"
+            },
+            "EXT_MATTER": {
+              "type": "number"
+            },
+            "REMARKS": {
+              "type": "number"
+            },
+            "STRENGTH": {
+              "type": "number"
+            },
+            "COLOR_GR": {
+              "type": "string"
+            },
+            "COLOR_RD": {
+              "type": "number"
+            },
+            "COLOR_B": {
+              "type": "number"
+            },
+            "TRASH": {
+              "type": "number"
+            },
+            "UNIFORM": {
+              "type": "number"
+            },
+            "LENGTH": {
+              "type": "number"
+            },
+            "ELONGATION": {
+              "type": "number"
+            },
+            "MOIST_PRE": {
+              "type": "number"
+            },
+            "MOIST_POST": {
+              "type": "number"
+            },
+            "DT_CLASS": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "CLASS_CORR": {
+              "type": "string"
+            },
+            "CCC_LOAN": {
+              "type": "string"
+            },
+            "VAL_LOAN": {
+              "type": "number"
+            },
+            "VAL_SEED": {
+              "type": "number"
+            },
+            "WH_ID": {
+              "type": "number"
+            },
+            "WH_BALE": {
+              "type": "number"
+            },
+            "WH_WT": {
+              "type": "number"
+            },
+            "DT_STORED": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "BIRTH_NUM": {
+              "type": "number"
+            },
+            "P_CHARGE": {
+              "type": "number"
+            },
+            "L_CHARGE": {
+              "type": "number"
+            },
+            "L_SDCREDIT": {
+              "type": "number"
+            },
+            "TA_NUM": {
+              "type": "number"
+            },
+            "RETEST": {
+              "type": "string"
+            },
+            "CARD_TYPE": {
+              "type": "string"
+            },
+            "LOANSTATUS": {
+              "type": "string"
+            },
+            "LOAN_NUM": {
+              "type": "number"
+            },
+            "CCC_SENT": {
+              "type": "null"
+            },
+            "CLOAD_TYPE": {
+              "type": "string"
+            },
+            "CLOAD_NUM": {
+              "type": "number"
+            },
+            "CBALECOUNT": {
+              "type": "number"
+            },
+            "CPROD_ACCT": {
+              "type": "string"
+            },
+            "PR_RECAP": {
+              "type": "number"
+            },
+            "PR_INVOICE": {
+              "type": "number"
+            },
+            "SL_RECAP": {
+              "type": "number"
+            },
+            "SL_INVOICE": {
+              "type": "number"
+            },
+            "PR_CONTRID": {
+              "type": "string"
+            },
+            "PR_CONTRNM": {
+              "type": "number"
+            },
+            "SL_CONTRID": {
+              "type": "string"
+            },
+            "EWRXFER_DT": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "EWRXFER_TO": {
+              "type": "string"
+            },
+            "HOLD_POST": {
+              "type": "boolean"
+            },
+            "SENT": {
+              "type": "string"
+            },
+            "BLGRP_APP": {
+              "type": "string"
+            },
+            "BLGRP_BD": {
+              "type": "string"
+            },
+            "USER_FLAGS": {
+              "type": "string"
+            },
+            "LASTEWRUPD": {
+              "type": "number"
+            },
+            "FIREBALE": {
+              "type": "null"
+            },
+            "MISC_FLAGS": {
+              "type": "string"
+            },
+            "CON_TRANS": {
+              "type": "null"
+            },
+            "CON_RECAP": {
+              "type": "null"
+            },
+            "CON_LOAN": {
+              "type": "null"
+            },
+            "CON_COMMIT": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    ],
+    "RECORD": [
+      {
+        "type": "RECORD",
+        "stream": "GNBALE.dbf",
+        "record": {
+          "@meta": {
+            "deleted": false
+          },
+          "TYPE": "P",
+          "GIN_BALE": 24134,
+          "LOAD_NUM": 1,
+          "GIN_ID": 50797,
+          "GIN_WT": 582,
+          "GIN_TARE": 5,
+          "BAGGING": null,
+          "TIES": null,
+          "SEED_WT": 635,
+          "SHIFT": 1,
+          "PROD_ID": "400",
+          "OWNER_ID": "400",
+          "FARM_ID": "1752",
+          "FIELD_ID": "N/A",
+          "PICK": "1",
+          "DT_GIN": "2017-11-10T06:00:00.000Z",
+          "BIRTH_DT": "1899-12-31T06:00:00.000Z",
+          "BIRTH_TIME": "",
+          "LABOR_SECS": null,
+          "GRADE": 41,
+          "STAPLE": 35,
+          "MIC": 4.6,
+          "LEAF": 4,
+          "EXT_MATTER": 0,
+          "REMARKS": 0,
+          "STRENGTH": 29,
+          "COLOR_GR": "41-3",
+          "COLOR_RD": 74.4,
+          "COLOR_B": 8.6,
+          "TRASH": 5,
+          "UNIFORM": 82.3,
+          "LENGTH": 110,
+          "ELONGATION": null,
+          "MOIST_PRE": null,
+          "MOIST_POST": null,
+          "DT_CLASS": "2017-11-16T06:00:00.000Z",
+          "CLASS_CORR": "0",
+          "CCC_LOAN": "+0110",
+          "VAL_LOAN": 50.59,
+          "VAL_SEED": 25.4,
+          "WH_ID": 830793,
+          "WH_BALE": 24134,
+          "WH_WT": 577,
+          "DT_STORED": "2017-11-10T06:00:00.000Z",
+          "BIRTH_NUM": null,
+          "P_CHARGE": 29.28,
+          "L_CHARGE": 0,
+          "L_SDCREDIT": 0,
+          "TA_NUM": null,
+          "RETEST": "0",
+          "CARD_TYPE": "1",
+          "LOANSTATUS": "",
+          "LOAN_NUM": null,
+          "CLOAD_TYPE": "1",
+          "CLOAD_NUM": 3191,
+          "CBALECOUNT": 16,
+          "CPROD_ACCT": "",
+          "PR_RECAP": null,
+          "PR_INVOICE": null,
+          "SL_RECAP": null,
+          "SL_INVOICE": null,
+          "PR_CONTRID": "AUTAUGA",
+          "PR_CONTRNM": 145,
+          "SL_CONTRID": "AUTAUGA",
+          "EWRXFER_DT": "2017-11-11T06:00:00.000Z",
+          "EWRXFER_TO": "AUTAUGA",
+          "HOLD_POST": false,
+          "SENT": "Y",
+          "BLGRP_APP": "",
+          "BLGRP_BD": "",
+          "USER_FLAGS": "",
+          "LASTEWRUPD": 1,
+          "MISC_FLAGS": ""
+        }
+      },
+      {
+        "type": "RECORD",
+        "stream": "GNBALE.dbf",
+        "record": {
+          "@meta": {
+            "deleted": false
+          },
+          "TYPE": "P",
+          "GIN_BALE": 24135,
+          "LOAD_NUM": 1,
+          "GIN_ID": 50797,
+          "GIN_WT": 525,
+          "GIN_TARE": 5,
+          "BAGGING": null,
+          "TIES": null,
+          "SEED_WT": 572,
+          "SHIFT": 1,
+          "PROD_ID": "400",
+          "OWNER_ID": "400",
+          "FARM_ID": "1752",
+          "FIELD_ID": "N/A",
+          "PICK": "1",
+          "DT_GIN": "2017-11-10T06:00:00.000Z",
+          "BIRTH_DT": "1899-12-31T06:00:00.000Z",
+          "BIRTH_TIME": "",
+          "LABOR_SECS": null,
+          "GRADE": 21,
+          "STAPLE": 35,
+          "MIC": 4.6,
+          "LEAF": 2,
+          "EXT_MATTER": 0,
+          "REMARKS": 0,
+          "STRENGTH": 29,
+          "COLOR_GR": "21-2",
+          "COLOR_RD": 78.4,
+          "COLOR_B": 9,
+          "TRASH": 3,
+          "UNIFORM": 82.3,
+          "LENGTH": 110,
+          "ELONGATION": null,
+          "MOIST_PRE": null,
+          "MOIST_POST": null,
+          "DT_CLASS": "2017-11-16T06:00:00.000Z",
+          "CLASS_CORR": "0",
+          "CCC_LOAN": "+0365",
+          "VAL_LOAN": 53.14,
+          "VAL_SEED": 22.88,
+          "WH_ID": 830793,
+          "WH_BALE": 24135,
+          "WH_WT": 520,
+          "DT_STORED": "2017-11-10T06:00:00.000Z",
+          "BIRTH_NUM": null,
+          "P_CHARGE": 29.28,
+          "L_CHARGE": 0,
+          "L_SDCREDIT": 0,
+          "TA_NUM": null,
+          "RETEST": "0",
+          "CARD_TYPE": "1",
+          "LOANSTATUS": "",
+          "LOAN_NUM": null,
+          "CLOAD_TYPE": "1",
+          "CLOAD_NUM": 3191,
+          "CBALECOUNT": 16,
+          "CPROD_ACCT": "",
+          "PR_RECAP": null,
+          "PR_INVOICE": null,
+          "SL_RECAP": null,
+          "SL_INVOICE": null,
+          "PR_CONTRID": "AUTAUGA",
+          "PR_CONTRNM": 145,
+          "SL_CONTRID": "AUTAUGA",
+          "EWRXFER_DT": "2017-11-11T06:00:00.000Z",
+          "EWRXFER_TO": "AUTAUGA",
+          "HOLD_POST": false,
+          "SENT": "Y",
+          "BLGRP_APP": "",
+          "BLGRP_BD": "",
+          "USER_FLAGS": "",
+          "LASTEWRUPD": 1,
+          "MISC_FLAGS": ""
+        }
+      },
+      {
+        "type": "RECORD",
+        "stream": "GNBALE.dbf",
+        "record": {
+          "@meta": {
+            "deleted": false
+          },
+          "TYPE": "P",
+          "GIN_BALE": 24136,
+          "LOAD_NUM": 1,
+          "GIN_ID": 50797,
+          "GIN_WT": 511,
+          "GIN_TARE": 5,
+          "BAGGING": null,
+          "TIES": null,
+          "SEED_WT": 557,
+          "SHIFT": 1,
+          "PROD_ID": "400",
+          "OWNER_ID": "400",
+          "FARM_ID": "1752",
+          "FIELD_ID": "N/A",
+          "PICK": "1",
+          "DT_GIN": "2017-11-10T06:00:00.000Z",
+          "BIRTH_DT": "1899-12-31T06:00:00.000Z",
+          "BIRTH_TIME": "",
+          "LABOR_SECS": null,
+          "GRADE": 21,
+          "STAPLE": 35,
+          "MIC": 4.6,
+          "LEAF": 2,
+          "EXT_MATTER": 0,
+          "REMARKS": 0,
+          "STRENGTH": 29,
+          "COLOR_GR": "21-2",
+          "COLOR_RD": 78.6,
+          "COLOR_B": 8.8,
+          "TRASH": 2,
+          "UNIFORM": 82.3,
+          "LENGTH": 110,
+          "ELONGATION": null,
+          "MOIST_PRE": null,
+          "MOIST_POST": null,
+          "DT_CLASS": "2017-11-16T06:00:00.000Z",
+          "CLASS_CORR": "0",
+          "CCC_LOAN": "+0365",
+          "VAL_LOAN": 53.14,
+          "VAL_SEED": 22.28,
+          "WH_ID": 830793,
+          "WH_BALE": 24136,
+          "WH_WT": 506,
+          "DT_STORED": "2017-11-10T06:00:00.000Z",
+          "BIRTH_NUM": null,
+          "P_CHARGE": 29.28,
+          "L_CHARGE": 0,
+          "L_SDCREDIT": 0,
+          "TA_NUM": null,
+          "RETEST": "0",
+          "CARD_TYPE": "1",
+          "LOANSTATUS": "",
+          "LOAN_NUM": null,
+          "CLOAD_TYPE": "1",
+          "CLOAD_NUM": 3191,
+          "CBALECOUNT": 16,
+          "CPROD_ACCT": "",
+          "PR_RECAP": null,
+          "PR_INVOICE": null,
+          "SL_RECAP": null,
+          "SL_INVOICE": null,
+          "PR_CONTRID": "AUTAUGA",
+          "PR_CONTRNM": 145,
+          "SL_CONTRID": "AUTAUGA",
+          "EWRXFER_DT": "2017-11-11T06:00:00.000Z",
+          "EWRXFER_TO": "AUTAUGA",
+          "HOLD_POST": false,
+          "SENT": "Y",
+          "BLGRP_APP": "",
+          "BLGRP_BD": "",
+          "USER_FLAGS": "",
+          "LASTEWRUPD": 1,
+          "MISC_FLAGS": ""
+        }
+      }
+    ]
+  }

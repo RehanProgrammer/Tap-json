@@ -1,0 +1,22 @@
+{
+    "Load": [
+        "{{RECORD}}",
+        {
+            "CustomerImportMatch": "{{record.PROD_ID}}",
+            "FarmImportMatch": "{{record.PROD_ID}}~{{record.FARM_ID}}~{{record.FIELD_ID}}",
+            "TicketNum": "{{record.LOAD_NUM}}",
+            "LoadNum": "{{record.LOAD_NUM}}",
+            "ModuleTrailer": "{{record.MODULE_ID}}",
+            "GinDate": "{{record.DT_GIN}}",
+            "LoadType": "M",
+            "Mark": "{{record.RNDM_COUNT}}",
+            "Gross": "{{record.LDGROSS_WT}}",
+            "Tare": "{{record.LDTARE_WT}}",
+            "Yard": "{{record.LOCATION}}",
+            "Remarks": "{{record.LOADREMARK}}",
+            "ImportMatch": "{{record.LOAD_NUM}}~",
+            "entityState":"AddedOrModified"
+        }
+    ],
+    "parseInfo": "(required for import)"
+}

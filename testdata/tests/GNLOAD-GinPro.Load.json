@@ -1,0 +1,510 @@
+{
+  "STATE": {
+    "type": "STATE",
+    "tap_log": [],
+    "envelope": {},
+    "errors": []
+  },
+  "SCHEMA": [
+    {
+      "type": "SCHEMA",
+      "key_properties": [],
+      "stream": "GNLOAD.DBF",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "@meta": {
+            "type": "object",
+            "properties": {
+              "deleted": {
+                "type": "boolean"
+              }
+            }
+          },
+          "TYPE": {
+            "type": "string"
+          },
+          "LOAD_NUM": {
+            "type": "number"
+          },
+          "RUN_NUM": {
+            "type": "number"
+          },
+          "PROD_ID": {
+            "type": "string"
+          },
+          "FARM_ID": {
+            "type": "string"
+          },
+          "FIELD_ID": {
+            "type": "string"
+          },
+          "PICK": {
+            "type": "string"
+          },
+          "DISTANCE": {
+            "type": "number"
+          },
+          "VARIETY": {
+            "type": "string"
+          },
+          "DT_DEL": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TIME_DEL": {
+            "type": "string"
+          },
+          "TORM": {
+            "type": "number"
+          },
+          "CREW_ID": {
+            "type": "string"
+          },
+          "MODULE_ID": {
+            "type": "string"
+          },
+          "TRUCK_ID": {
+            "type": "string"
+          },
+          "TRUCK_TARE": {
+            "type": "number"
+          },
+          "TRAIL1_ID": {
+            "type": "string"
+          },
+          "TRAIL1TARE": {
+            "type": "number"
+          },
+          "TRAIL2_ID": {
+            "type": "string"
+          },
+          "TRAIL2TARE": {
+            "type": "number"
+          },
+          "HAUL_ID": {
+            "type": "string"
+          },
+          "RNDMODULE": {
+            "type": "boolean"
+          },
+          "RNDM_COUNT": {
+            "type": "number"
+          },
+          "PILE_ID": {
+            "type": "string"
+          },
+          "LDTICK_NUM": {
+            "type": "number"
+          },
+          "LDGROSS_WT": {
+            "type": "number"
+          },
+          "LDTARE_WT": {
+            "type": "number"
+          },
+          "CHG_RENT": {
+            "type": "boolean"
+          },
+          "CHG_HAUL": {
+            "type": "boolean"
+          },
+          "MISC_CHG1": {
+            "type": "boolean"
+          },
+          "MISC_CHG2": {
+            "type": "boolean"
+          },
+          "SHIFT": {
+            "type": "number"
+          },
+          "DT_GIN": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DT_MADE": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TM_MADE": {
+            "type": "string"
+          },
+          "DT_STMT": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "LOCATION": {
+            "type": "string"
+          },
+          "LOCATION2": {
+            "type": "string"
+          },
+          "FIELDLOC1": {
+            "type": "string"
+          },
+          "FIELDLOC2": {
+            "type": "string"
+          },
+          "CUR_MOIST": {
+            "type": "number"
+          },
+          "PREV_MOIST": {
+            "type": "number"
+          },
+          "CUR_TEMP": {
+            "type": "number"
+          },
+          "PREV_TEMP": {
+            "type": "number"
+          },
+          "LOADREMARK": {
+            "type": "string"
+          },
+          "FIRE_LOSS": {
+            "type": "number"
+          },
+          "ACTIVE": {
+            "type": "boolean"
+          },
+          "AVERAGED": {
+            "type": "boolean"
+          },
+          "TOT_BLS": {
+            "type": "number"
+          },
+          "TOT_LINT": {
+            "type": "number"
+          },
+          "TOT_TARE": {
+            "type": "number"
+          },
+          "TOT_SEED": {
+            "type": "number"
+          },
+          "INV_SEED": {
+            "type": "number"
+          },
+          "TOT_RMM": {
+            "type": "number"
+          },
+          "TOT_RMU": {
+            "type": "number"
+          },
+          "TOT_RMW": {
+            "type": "number"
+          },
+          "TOT_RUW": {
+            "type": "number"
+          },
+          "TOT_RMSD": {
+            "type": "number"
+          },
+          "TOT_RUSD": {
+            "type": "number"
+          },
+          "TOT_LOANVL": {
+            "type": "number"
+          },
+          "VAL_SEED": {
+            "type": "number"
+          },
+          "TSCHG": {
+            "type": "number"
+          },
+          "TCHG0": {
+            "type": "number"
+          },
+          "TCHG1": {
+            "type": "number"
+          },
+          "TCHG2": {
+            "type": "number"
+          },
+          "TCHG3": {
+            "type": "number"
+          },
+          "TCHG4": {
+            "type": "number"
+          },
+          "TCHG5": {
+            "type": "number"
+          },
+          "TCHG6": {
+            "type": "number"
+          },
+          "TCHG7": {
+            "type": "number"
+          },
+          "TCHG8": {
+            "type": "number"
+          },
+          "TCHG9": {
+            "type": "number"
+          },
+          "C_SAP1": {
+            "type": "number"
+          },
+          "C_SAP2": {
+            "type": "number"
+          },
+          "C_SAP3": {
+            "type": "number"
+          },
+          "C_SAP4": {
+            "type": "number"
+          },
+          "C_SAP5": {
+            "type": "number"
+          },
+          "C_SRT1": {
+            "type": "number"
+          },
+          "C_SRT2": {
+            "type": "number"
+          },
+          "C_SRT3": {
+            "type": "number"
+          },
+          "C_SRT4": {
+            "type": "number"
+          },
+          "C_SRT5": {
+            "type": "number"
+          },
+          "UNPOST": {
+            "type": "boolean"
+          },
+          "SENT": {
+            "type": "string"
+          },
+          "MISC_FLAGS": {
+            "type": "string"
+          },
+          "AMSTRANNUM": {
+            "type": "number"
+          },
+          "DATELOCKED": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "REBATE_CON": {
+            "type": "null"
+          },
+          "HAUL_CON": {
+            "type": "null"
+          },
+          "ZUDEFAULT": {
+            "type": "boolean"
+          },
+          "ZUPRICCHRT": {
+            "type": "number"
+          },
+          "ZUINTELGIN": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  ],
+  "RECORD": [
+    {
+      "type": "RECORD",
+      "stream": "GNLOAD.DBF",
+      "record": {
+        "@meta": {
+          "deleted": false
+        },
+        "TYPE": "P",
+        "LOAD_NUM": 1,
+        "RUN_NUM": 0,
+        "PROD_ID": "SIMMONS",
+        "FARM_ID": "8783",
+        "FIELD_ID": "R66",
+        "PICK": "1",
+        "DISTANCE": 0,
+        "VARIETY": "DG 3385",
+        "DT_DEL": "2017-10-18T05:00:00.000Z",
+        "TIME_DEL": "00:00",
+        "TORM": 2,
+        "CREW_ID": "",
+        "MODULE_ID": "381",
+        "TRUCK_ID": "62",
+        "TRUCK_TARE": 34600,
+        "TRAIL1_ID": "",
+        "TRAIL1TARE": 0,
+        "TRAIL2_ID": "",
+        "TRAIL2TARE": 0,
+        "HAUL_ID": "",
+        "RNDMODULE": true,
+        "RNDM_COUNT": 4,
+        "PILE_ID": "",
+        "LDTICK_NUM": 7000001,
+        "LDGROSS_WT": 54320,
+        "LDTARE_WT": 34600,
+        "CHG_RENT": false,
+        "CHG_HAUL": false,
+        "MISC_CHG1": false,
+        "MISC_CHG2": false,
+        "SHIFT": 1,
+        "DT_GIN": "2017-10-26T05:00:00.000Z",
+        "DT_MADE": "1899-12-31T06:00:00.000Z",
+        "TM_MADE": "00:00",
+        "DT_STMT": "2017-11-23T06:00:00.000Z",
+        "LOCATION": "",
+        "LOCATION2": "",
+        "FIELDLOC1": "",
+        "FIELDLOC2": "",
+        "CUR_MOIST": 0,
+        "PREV_MOIST": 0,
+        "CUR_TEMP": 0,
+        "PREV_TEMP": 0,
+        "LOADREMARK": "",
+        "FIRE_LOSS": 0,
+        "ACTIVE": true,
+        "AVERAGED": true,
+        "TOT_BLS": 14,
+        "TOT_LINT": 6728,
+        "TOT_TARE": 42,
+        "TOT_SEED": 9218,
+        "INV_SEED": 9218,
+        "TOT_RMM": 0,
+        "TOT_RMU": 0,
+        "TOT_RMW": 0,
+        "TOT_RUW": 0,
+        "TOT_RMSD": 0,
+        "TOT_RUSD": 0,
+        "TOT_LOANVL": 3330.34,
+        "VAL_SEED": 0,
+        "TSCHG": 0,
+        "TCHG0": 0,
+        "TCHG1": 0,
+        "TCHG2": 0,
+        "TCHG3": 0,
+        "TCHG4": 0,
+        "TCHG5": 0,
+        "TCHG6": 0,
+        "TCHG7": 0,
+        "TCHG8": 0,
+        "TCHG9": 0,
+        "C_SAP1": 0,
+        "C_SAP2": 0,
+        "C_SAP3": 0,
+        "C_SAP4": 0,
+        "C_SAP5": 0,
+        "C_SRT1": 0,
+        "C_SRT2": 0,
+        "C_SRT3": 0,
+        "C_SRT4": 0,
+        "C_SRT5": 0,
+        "UNPOST": false,
+        "SENT": "",
+        "MISC_FLAGS": "",
+        "AMSTRANNUM": 1,
+        "DATELOCKED": "1899-12-31T06:00:00.000Z",
+        "ZUDEFAULT": true,
+        "ZUPRICCHRT": 0,
+        "ZUINTELGIN": false
+      }
+    },
+    {
+      "type": "RECORD",
+      "stream": "GNLOAD.DBF",
+      "record": {
+        "@meta": {
+          "deleted": false
+        },
+        "TYPE": "P",
+        "LOAD_NUM": 3313,
+        "RUN_NUM": 0,
+        "PROD_ID": "BROWN",
+        "FARM_ID": "7014",
+        "FIELD_ID": "2SH7_A",
+        "PICK": "1",
+        "DISTANCE": 0,
+        "VARIETY": "ST 4946",
+        "DT_DEL": "2017-10-18T05:00:00.000Z",
+        "TIME_DEL": "00:00",
+        "TORM": 2,
+        "CREW_ID": "",
+        "MODULE_ID": "3313",
+        "TRUCK_ID": "63",
+        "TRUCK_TARE": 34880,
+        "TRAIL1_ID": "",
+        "TRAIL1TARE": 0,
+        "TRAIL2_ID": "",
+        "TRAIL2TARE": 0,
+        "HAUL_ID": "",
+        "RNDMODULE": true,
+        "RNDM_COUNT": 4,
+        "PILE_ID": "",
+        "LDTICK_NUM": 7000060,
+        "LDGROSS_WT": 54380,
+        "LDTARE_WT": 34880,
+        "CHG_RENT": false,
+        "CHG_HAUL": false,
+        "MISC_CHG1": false,
+        "MISC_CHG2": false,
+        "SHIFT": 1,
+        "DT_GIN": "2017-10-26T05:00:00.000Z",
+        "DT_MADE": "1899-12-31T06:00:00.000Z",
+        "TM_MADE": "00:00",
+        "DT_STMT": "2017-11-23T06:00:00.000Z",
+        "LOCATION": "",
+        "LOCATION2": "",
+        "FIELDLOC1": "",
+        "FIELDLOC2": "",
+        "CUR_MOIST": 0,
+        "PREV_MOIST": 0,
+        "CUR_TEMP": 0,
+        "PREV_TEMP": 0,
+        "LOADREMARK": "",
+        "FIRE_LOSS": 0,
+        "ACTIVE": true,
+        "AVERAGED": true,
+        "TOT_BLS": 17,
+        "TOT_LINT": 8149,
+        "TOT_TARE": 51,
+        "TOT_SEED": 11166,
+        "INV_SEED": 11166,
+        "TOT_RMM": 0,
+        "TOT_RMU": 0,
+        "TOT_RMW": 0,
+        "TOT_RUW": 0,
+        "TOT_RMSD": 0,
+        "TOT_RUSD": 0,
+        "TOT_LOANVL": 4328.99,
+        "VAL_SEED": 0,
+        "TSCHG": 0,
+        "TCHG0": 149.09,
+        "TCHG1": 0,
+        "TCHG2": 0,
+        "TCHG3": 0,
+        "TCHG4": 0,
+        "TCHG5": 0,
+        "TCHG6": 0,
+        "TCHG7": 0,
+        "TCHG8": 0,
+        "TCHG9": 0,
+        "C_SAP1": 0,
+        "C_SAP2": 0,
+        "C_SAP3": 0,
+        "C_SAP4": 0,
+        "C_SAP5": 0,
+        "C_SRT1": 0,
+        "C_SRT2": 0,
+        "C_SRT3": 0,
+        "C_SRT4": 0,
+        "C_SRT5": 0,
+        "UNPOST": false,
+        "SENT": "",
+        "MISC_FLAGS": "",
+        "AMSTRANNUM": 5,
+        "DATELOCKED": "1899-12-31T06:00:00.000Z",
+        "ZUDEFAULT": true,
+        "ZUPRICCHRT": 0,
+        "ZUINTELGIN": false
+      }
+    }
+  ]
+}

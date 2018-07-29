@@ -1,0 +1,18 @@
+{
+    "Farm": [
+        "{{__rootArray}}",
+        {
+            "CustomerImportMatch": "{{PROD_ID}}",
+            "FarmRef": "=> getCounter('FarmRef',-1)",
+            "FarmName": "{{FARM_ID}}-{{FIELD_ID}} {{FIELD_DESC}}",
+            "FarmSerial": "{{FSA_NUM}}",
+            "MilesFromGin": "{{DISTANCE}}",
+            "DirectionstoField": "{{FIELD_LOC1}}",
+            "FarmCode": "{{FARM_ID}}-{{FIELD_ID}}",
+            "Lienholders": "{{LIENHOLDER}}",
+            "ImportMatch": "{{PROD_ID}}~{{FARM_ID}}~{{FIELD_ID}}"
+        }
+    ],
+    "parseInfo": "(required for import)"
+    
+}
