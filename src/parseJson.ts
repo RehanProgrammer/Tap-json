@@ -62,5 +62,6 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
     rec.record = result
     return rec
   }
+
   return result
 }
