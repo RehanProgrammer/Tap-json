@@ -8,6 +8,7 @@
             "LoadNum": "{{record.LOAD_NUM}}",
             "ModuleTrailer": "{{record.MODULE_ID}}",
             "GinDate": "{{record.DT_GIN}}",
+            "RcvDate": "{{record.DT_DEL}}",
             "LoadType": "M",
             "Mark": "{{record.RNDM_COUNT}}",
             "Gross": "{{record.LDGROSS_WT}}",
