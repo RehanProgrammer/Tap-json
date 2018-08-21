@@ -1,0 +1,21 @@
+{
+    "Customer": [
+        "{{RECORD}}",
+        {
+            "CustomerRef":"=> getCounter('CustomerRef',-1)",
+            "Last": "{{record.NAME}}",
+            "TaxNum": "{{record.FED_ID}}",
+            "Address": "{{record.ADDRESS1}} {{record.ADDRESS2}}",
+            "City": "{{record.CITY}}",
+            "State": "{{record.STATE}}",
+            "Zip": "{{record.ZIPCODE}}",
+            "Phone": "{{record.MOBILE_NUM}}",
+            "CustomerCode": "{{record.PROD_ID}}",
+            "BusinessType": "Producer",
+            "EwrID": "",
+            "Email": "{{record.EMAIL}}",
+            "ImportMatch": "{{record.PROD_ID}}"
+        }
+    ],
+    "parseInfo": "(required for import)"
+}

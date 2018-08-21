@@ -43,7 +43,24 @@ export async function parseJson(toParse: any, configObjs: allConfigs) {
     if (incAmt) incCounter(name, incAmt)
     return counters[name]
   }
-  let result = transform(configObjs.config.map, toParseObj, { incCounter, getCounter })
+
+  let asString = function(value: string): string {
+    return '' + value
+  }
+  let asNumber = function(value: number): number {
+    return 1 * value
+  }
+  let subStr = function(value: string, start: number, count: number) {
+    return value.substr(start, count)
+  }
+
+  let result = transform(configObjs.config.map, toParseObj, {
+    incCounter,
+    getCounter,
+    asString,
+    asNumber,
+    subStr
+  })
   if (result.__rootArray) {
     result = result.__rootArray
   }

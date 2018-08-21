@@ -14,6 +14,8 @@
             "CountyCode": "(no output?)",
             "StateCode": "(no output?)",
             "DirectionstoField": "{{record.FIELD_LOC1}}",
+            "str":"=>asString(5)",
+            "num":"=>asNumber(5)",
             "FarmCode": "{{record.FARM_ID}}",
             "Lienholders": "{{record.LIENHOLDER}}",
             "Contract": "(no output?)",
