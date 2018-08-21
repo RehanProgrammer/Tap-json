@@ -1,14 +1,6 @@
-# tap-ts-starter #
+# Tap-Json #
 
-This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification), and most of the spec is reflected in [tap-types.ts](./src/tap-types.ts).
-
-This tap:
-- Scans a local folder, treating the files it finds there as emails (MIME), parsing them into JSON with [Nodemailer.Mailparser](https://nodemailer.com/extras/mailparser/)
-- Outputs a schema along with the resulting json for each file
-
-This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included (scan-dir.ts for scanning local folders) and a parser module (parse-mime.ts for parsing emails) is included as well.
-
-This code path is documented [here](https://rawgit.com/donpedro/tap-ts-starter/master/dist/docs-tap/index.html).
+This project takes in JSON and outputs a different format and from of JSON using the "qewd-transform-json".  The parseJson function takes in 2 arguments, the incoming data and a map of your desired data output. This package is much more powerful than other data transforms package available in NODEJS. You can also count number of records in an array and make a new function and write a new logic. For more info check this link "https://www.npmjs.com/package/qewd-transform-json"
 
 ### New-School Code
 If you're used to JavaScript code, here are a few newer ES6/ES7/TypeScript code features we use that might be new to you:
