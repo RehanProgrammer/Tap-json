@@ -13,7 +13,7 @@ export * from './parseJson'
 import * as scanDir from './scan-dir'
 
 // show developers that code has started to run
-console.log('working!')
+console.log('Working!')
 
 /** mainFunction is the main code to be run.
  *
